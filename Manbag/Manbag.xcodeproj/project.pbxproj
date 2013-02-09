@@ -300,7 +300,6 @@
 			children = (
 				B073483C16C5CDC400A7B961 /* Classes */,
 				B073484616C5CDC400A7B961 /* External */,
-				B073484916C5CDC400A7B961 /* Resources */,
 				B07347EF16C5BD1500A7B961 /* AppDelegate.h */,
 				B07347F016C5BD1500A7B961 /* AppDelegate.m */,
 				B07347E716C5BD1500A7B961 /* Supporting Files */,
@@ -369,13 +368,6 @@
 				B07001C416C665A80084C8E1 /* NSData_RMJsonData.h */,
 			);
 			path = External;
-			sourceTree = "<group>";
-		};
-		B073484916C5CDC400A7B961 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

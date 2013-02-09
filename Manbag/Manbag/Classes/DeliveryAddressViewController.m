@@ -8,6 +8,7 @@
 
 #import "DeliveryAddressViewController.h"
 #import "RMAnnotationDelegate.h"
+#import "PaymentViewController.h"
 
 @interface DeliveryAddressViewController ()
 
@@ -193,7 +194,8 @@ didChangeDragState:(MKAnnotationViewDragState)newState
             checker ++;
         }
         if (checker == 0) {
-            NSLog(@"Ready to save");
+            PaymentViewController* paymentViewController = [[PaymentViewController alloc] init];
+            [self.navigationController pushViewController:paymentViewController animated:YES];
         }
 }
 

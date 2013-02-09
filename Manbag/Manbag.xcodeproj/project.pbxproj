@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B065B19216C6B6A700F5D941 /* STPCard.m in Sources */ = {isa = PBXBuildFile; fileRef = B065B18A16C6B6A700F5D941 /* STPCard.m */; };
+		B065B19316C6B6A700F5D941 /* STPToken.m in Sources */ = {isa = PBXBuildFile; fileRef = B065B18C16C6B6A700F5D941 /* STPToken.m */; };
+		B065B19416C6B6A700F5D941 /* Stripe.m in Sources */ = {isa = PBXBuildFile; fileRef = B065B18F16C6B6A700F5D941 /* Stripe.m */; };
+		B065B19516C6B6A700F5D941 /* StripeError.m in Sources */ = {isa = PBXBuildFile; fileRef = B065B19116C6B6A700F5D941 /* StripeError.m */; };
+		B065B19916C6B78200F5D941 /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B065B19716C6B78100F5D941 /* PaymentViewController.m */; };
+		B065B19A16C6B78200F5D941 /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B065B19816C6B78100F5D941 /* PaymentViewController.xib */; };
 		B070019816C65C630084C8E1 /* NewViewControllerShop.m in Sources */ = {isa = PBXBuildFile; fileRef = B070019616C65C630084C8E1 /* NewViewControllerShop.m */; };
 		B070019916C65C630084C8E1 /* NewViewControllerShop.xib in Resources */ = {isa = PBXBuildFile; fileRef = B070019716C65C630084C8E1 /* NewViewControllerShop.xib */; };
 		B070019C16C65DC60084C8E1 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B070019B16C65DC60084C8E1 /* ImageIO.framework */; };
@@ -59,11 +65,21 @@
 		B0F5D19B16C69197006DE46A /* DeliveryAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F5D19916C69196006DE46A /* DeliveryAddressViewController.m */; };
 		B0F5D19C16C69197006DE46A /* DeliveryAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0F5D19A16C69196006DE46A /* DeliveryAddressViewController.xib */; };
 		B0F5D1A316C6968D006DE46A /* RMAnnotationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F5D1A216C6968C006DE46A /* RMAnnotationDelegate.m */; };
-		B0F5D1A716C69E4C006DE46A /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F5D1A516C69E4B006DE46A /* PaymentViewController.m */; };
-		B0F5D1A816C69E4C006DE46A /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0F5D1A616C69E4C006DE46A /* PaymentViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B065B18916C6B6A700F5D941 /* STPCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPCard.h; sourceTree = "<group>"; };
+		B065B18A16C6B6A700F5D941 /* STPCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPCard.m; sourceTree = "<group>"; };
+		B065B18B16C6B6A700F5D941 /* STPToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPToken.h; sourceTree = "<group>"; };
+		B065B18C16C6B6A700F5D941 /* STPToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPToken.m; sourceTree = "<group>"; };
+		B065B18D16C6B6A700F5D941 /* Stripe-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Stripe-Prefix.pch"; sourceTree = "<group>"; };
+		B065B18E16C6B6A700F5D941 /* Stripe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stripe.h; sourceTree = "<group>"; };
+		B065B18F16C6B6A700F5D941 /* Stripe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stripe.m; sourceTree = "<group>"; };
+		B065B19016C6B6A700F5D941 /* StripeError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StripeError.h; sourceTree = "<group>"; };
+		B065B19116C6B6A700F5D941 /* StripeError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StripeError.m; sourceTree = "<group>"; };
+		B065B19616C6B78100F5D941 /* PaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentViewController.h; sourceTree = "<group>"; };
+		B065B19716C6B78100F5D941 /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentViewController.m; sourceTree = "<group>"; };
+		B065B19816C6B78100F5D941 /* PaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentViewController.xib; sourceTree = "<group>"; };
 		B070019516C65C630084C8E1 /* NewViewControllerShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewViewControllerShop.h; sourceTree = "<group>"; };
 		B070019616C65C630084C8E1 /* NewViewControllerShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewViewControllerShop.m; sourceTree = "<group>"; };
 		B070019716C65C630084C8E1 /* NewViewControllerShop.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewViewControllerShop.xib; sourceTree = "<group>"; };
@@ -144,9 +160,6 @@
 		B0F5D19A16C69196006DE46A /* DeliveryAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliveryAddressViewController.xib; sourceTree = "<group>"; };
 		B0F5D1A116C6968C006DE46A /* RMAnnotationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAnnotationDelegate.h; sourceTree = "<group>"; };
 		B0F5D1A216C6968C006DE46A /* RMAnnotationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAnnotationDelegate.m; sourceTree = "<group>"; };
-		B0F5D1A416C69E4A006DE46A /* PaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentViewController.h; sourceTree = "<group>"; };
-		B0F5D1A516C69E4B006DE46A /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentViewController.m; sourceTree = "<group>"; };
-		B0F5D1A616C69E4C006DE46A /* PaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +192,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B065B18816C6B6A700F5D941 /* Stripe */ = {
+			isa = PBXGroup;
+			children = (
+				B065B18916C6B6A700F5D941 /* STPCard.h */,
+				B065B18A16C6B6A700F5D941 /* STPCard.m */,
+				B065B18B16C6B6A700F5D941 /* STPToken.h */,
+				B065B18C16C6B6A700F5D941 /* STPToken.m */,
+				B065B18D16C6B6A700F5D941 /* Stripe-Prefix.pch */,
+				B065B18E16C6B6A700F5D941 /* Stripe.h */,
+				B065B18F16C6B6A700F5D941 /* Stripe.m */,
+				B065B19016C6B6A700F5D941 /* StripeError.h */,
+				B065B19116C6B6A700F5D941 /* StripeError.m */,
+			);
+			path = Stripe;
+			sourceTree = "<group>";
+		};
 		B070019D16C665710084C8E1 /* MKNetworkKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,9 +349,9 @@
 				B0F5D19816C69196006DE46A /* DeliveryAddressViewController.h */,
 				B0F5D19916C69196006DE46A /* DeliveryAddressViewController.m */,
 				B0F5D19A16C69196006DE46A /* DeliveryAddressViewController.xib */,
-				B0F5D1A416C69E4A006DE46A /* PaymentViewController.h */,
-				B0F5D1A516C69E4B006DE46A /* PaymentViewController.m */,
-				B0F5D1A616C69E4C006DE46A /* PaymentViewController.xib */,
+				B065B19616C6B78100F5D941 /* PaymentViewController.h */,
+				B065B19716C6B78100F5D941 /* PaymentViewController.m */,
+				B065B19816C6B78100F5D941 /* PaymentViewController.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -330,6 +359,7 @@
 		B073484616C5CDC400A7B961 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				B065B18816C6B6A700F5D941 /* Stripe */,
 				B070019D16C665710084C8E1 /* MKNetworkKit */,
 				B073484716C5CDC400A7B961 /* UITableView+ZGParallelView.h */,
 				B073484816C5CDC400A7B961 /* UITableView+ZGParallelView.m */,
@@ -409,7 +439,7 @@
 				B070019916C65C630084C8E1 /* NewViewControllerShop.xib in Resources */,
 				B0F5D18916C676A6006DE46A /* NewViewControllerBagsPhoto.xib in Resources */,
 				B0F5D19C16C69197006DE46A /* DeliveryAddressViewController.xib in Resources */,
-				B0F5D1A816C69E4C006DE46A /* PaymentViewController.xib in Resources */,
+				B065B19A16C6B78200F5D941 /* PaymentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +473,11 @@
 				B0F5D19716C68B86006DE46A /* bagPoints.m in Sources */,
 				B0F5D19B16C69197006DE46A /* DeliveryAddressViewController.m in Sources */,
 				B0F5D1A316C6968D006DE46A /* RMAnnotationDelegate.m in Sources */,
-				B0F5D1A716C69E4C006DE46A /* PaymentViewController.m in Sources */,
+				B065B19216C6B6A700F5D941 /* STPCard.m in Sources */,
+				B065B19316C6B6A700F5D941 /* STPToken.m in Sources */,
+				B065B19416C6B6A700F5D941 /* Stripe.m in Sources */,
+				B065B19516C6B6A700F5D941 /* StripeError.m in Sources */,
+				B065B19916C6B78200F5D941 /* PaymentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +556,10 @@
 				GCC_PREFIX_HEADER = "Manbag/Manbag-Prefix.pch";
 				INFOPLIST_FILE = "Manbag/Manbag-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Manbag/External\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -538,6 +576,10 @@
 				GCC_PREFIX_HEADER = "Manbag/Manbag-Prefix.pch";
 				INFOPLIST_FILE = "Manbag/Manbag-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Manbag/External\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

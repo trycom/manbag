@@ -10,4 +10,14 @@
 
 @interface PaymentViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (copy) NSNumber *price;
+@property (weak, nonatomic) IBOutlet UITextField *numberTextField;
+@property (weak, nonatomic) IBOutlet UITextField *expMonthTextField;
+@property (weak, nonatomic) IBOutlet UITextField *expYearTextField;
+@property (weak, nonatomic) IBOutlet UITextField *cvcTextField;
+@property (weak, nonatomic) IBOutlet UILabel *cardErrorLabel;
+
+- (IBAction)orderButton:(id)sender;
+
 @end

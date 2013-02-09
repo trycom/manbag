@@ -36,8 +36,8 @@
         [self showLogin];
     }
     dynamicHeight = [UIScreen mainScreen].bounds.size.height - 20;
-    HomeViewController *homeViewController = [[HomeViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
+    _homeViewController = [[HomeViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:_homeViewController];
     [self addChildViewController:navController];
     [navController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
     [_mainView addSubview:navController.view];
@@ -46,7 +46,7 @@
     [navController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
     UIImage* barBackground = [UIImage imageNamed:@"navBar.png"];
     [navController.navigationBar setBackgroundImage:barBackground forBarMetrics:UIBarMetricsDefault];
-    [homeViewController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
+    [_homeViewController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
     [navController didMoveToParentViewController:self];
 }
 
@@ -66,6 +66,7 @@
 
 - (void)hideTop{
     _topView.alpha = 0.0;
+    [_homeViewController viewDidAppear:YES];
 }
 
 

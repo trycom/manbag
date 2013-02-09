@@ -20,7 +20,7 @@
     [urlString appendFormat:@"%f,%f", latitude, longitude];
     if (searchTerm.length > 0) {
         [urlString appendString:@"&query="];
-        [urlString appendFormat:@"%f", longitude];
+        [urlString appendFormat:@"%@", searchTerm];
     }
     [urlString appendString:@"&client_id=FTSMY4GREBF2XBKCQWMXCVTANJHGSFF4IYUW30J5OB42DCEZ"];
     [urlString appendString:@"&client_secret=TMKBKLONRZ3JTIXQGNKYR2E1DISZRCH3WWYFT14PUAJP2OOY"];    
@@ -31,11 +31,12 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"FoursquareSuccess" object:self userInfo:responseDictionary];
             }
             else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"FoursquareFail" object:nil];
                 [self showError:@"Foursquare connection failed"];
             }
     }
              onError:^(NSError *error) {
-                 NSLog(@"%@", urlString);
+                 [[NSNotificationCenter defaultCenter] postNotificationName:@"FoursquareFail" object:nil];
                  [self showError:@"Foursquare connection failed"];
              }];
     [self enqueueOperation:op];

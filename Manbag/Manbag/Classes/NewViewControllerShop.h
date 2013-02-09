@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface NewViewControllerShop : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface NewViewControllerShop : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UIScrollViewDelegate> {
     BOOL hasZoomed;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tv;
 @property (strong, nonatomic) IBOutlet MKMapView *map;
 @property (strong, nonatomic) NSMutableArray *locations;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

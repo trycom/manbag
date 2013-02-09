@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeViewController.h"
 
 @interface CentralViewController : UIViewController {
     int dynamicHeight;
@@ -14,6 +15,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *mainView;
 @property (strong, nonatomic) IBOutlet UIView *topView;
+@property (strong, nonatomic) HomeViewController* homeViewController;
 
 - (void)showTop;
 - (void)hideTop;

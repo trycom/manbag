@@ -91,6 +91,12 @@
 		B0DE58F216C6C6AC0006B640 /* rightArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0DE58D116C6C6AC0006B640 /* rightArrow@2x.png */; };
 		B0DE58F316C6C6AC0006B640 /* selectBackg.png in Resources */ = {isa = PBXBuildFile; fileRef = B0DE58D216C6C6AC0006B640 /* selectBackg.png */; };
 		B0DE58F416C6C6AC0006B640 /* selectBackg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0DE58D316C6C6AC0006B640 /* selectBackg@2x.png */; };
+		B0DE590316C6CADB0006B640 /* ShopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DE590116C6CADB0006B640 /* ShopCell.m */; };
+		B0DE590416C6CADB0006B640 /* ShopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0DE590216C6CADB0006B640 /* ShopCell.xib */; };
+		B0DE590816C6CB4D0006B640 /* ToolbarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DE590616C6CB4D0006B640 /* ToolbarCell.m */; };
+		B0DE590916C6CB4D0006B640 /* ToolbarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0DE590716C6CB4D0006B640 /* ToolbarCell.xib */; };
+		B0DE590C16C6E5E80006B640 /* 22-location-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B0DE590A16C6E5E80006B640 /* 22-location-arrow.png */; };
+		B0DE590D16C6E5E80006B640 /* 22-location-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0DE590B16C6E5E80006B640 /* 22-location-arrow@2x.png */; };
 		B0F5D18816C676A6006DE46A /* NewViewControllerBagsPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F5D18616C676A6006DE46A /* NewViewControllerBagsPhoto.m */; };
 		B0F5D18916C676A6006DE46A /* NewViewControllerBagsPhoto.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0F5D18716C676A6006DE46A /* NewViewControllerBagsPhoto.xib */; };
 		B0F5D19016C6848E006DE46A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F5D18F16C6848E006DE46A /* MBProgressHUD.m */; };
@@ -214,6 +220,14 @@
 		B0DE58D116C6C6AC0006B640 /* rightArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightArrow@2x.png"; sourceTree = "<group>"; };
 		B0DE58D216C6C6AC0006B640 /* selectBackg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectBackg.png; sourceTree = "<group>"; };
 		B0DE58D316C6C6AC0006B640 /* selectBackg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectBackg@2x.png"; sourceTree = "<group>"; };
+		B0DE590016C6CADB0006B640 /* ShopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCell.h; sourceTree = "<group>"; };
+		B0DE590116C6CADB0006B640 /* ShopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCell.m; sourceTree = "<group>"; };
+		B0DE590216C6CADB0006B640 /* ShopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCell.xib; sourceTree = "<group>"; };
+		B0DE590516C6CB4C0006B640 /* ToolbarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarCell.h; sourceTree = "<group>"; };
+		B0DE590616C6CB4D0006B640 /* ToolbarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarCell.m; sourceTree = "<group>"; };
+		B0DE590716C6CB4D0006B640 /* ToolbarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolbarCell.xib; sourceTree = "<group>"; };
+		B0DE590A16C6E5E80006B640 /* 22-location-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "22-location-arrow.png"; sourceTree = "<group>"; };
+		B0DE590B16C6E5E80006B640 /* 22-location-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "22-location-arrow@2x.png"; sourceTree = "<group>"; };
 		B0F5D18516C676A6006DE46A /* NewViewControllerBagsPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewViewControllerBagsPhoto.h; sourceTree = "<group>"; };
 		B0F5D18616C676A6006DE46A /* NewViewControllerBagsPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewViewControllerBagsPhoto.m; sourceTree = "<group>"; };
 		B0F5D18716C676A6006DE46A /* NewViewControllerBagsPhoto.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewViewControllerBagsPhoto.xib; sourceTree = "<group>"; };
@@ -415,6 +429,12 @@
 				B0F5D19816C69196006DE46A /* DeliveryAddressViewController.h */,
 				B0F5D19916C69196006DE46A /* DeliveryAddressViewController.m */,
 				B0F5D19A16C69196006DE46A /* DeliveryAddressViewController.xib */,
+				B0DE590516C6CB4C0006B640 /* ToolbarCell.h */,
+				B0DE590616C6CB4D0006B640 /* ToolbarCell.m */,
+				B0DE590716C6CB4D0006B640 /* ToolbarCell.xib */,
+				B0DE590016C6CADB0006B640 /* ShopCell.h */,
+				B0DE590116C6CADB0006B640 /* ShopCell.m */,
+				B0DE590216C6CADB0006B640 /* ShopCell.xib */,
 				B065B19616C6B78100F5D941 /* PaymentViewController.h */,
 				B065B19716C6B78100F5D941 /* PaymentViewController.m */,
 				B065B19816C6B78100F5D941 /* PaymentViewController.xib */,
@@ -462,6 +482,8 @@
 				B0DE58C616C6C6AC0006B640 /* indexDesignRef.png */,
 				B0DE58C716C6C6AC0006B640 /* leftArrow.png */,
 				B0DE58C816C6C6AC0006B640 /* leftArrow@2x.png */,
+				B0DE590A16C6E5E80006B640 /* 22-location-arrow.png */,
+				B0DE590B16C6E5E80006B640 /* 22-location-arrow@2x.png */,
 				B0DE58C916C6C6AC0006B640 /* navBar.png */,
 				B0DE58CA16C6C6AC0006B640 /* navBar@2x.png */,
 				B0DE58CB16C6C6AC0006B640 /* navIcon.png */,
@@ -572,6 +594,10 @@
 				B0DE58F216C6C6AC0006B640 /* rightArrow@2x.png in Resources */,
 				B0DE58F316C6C6AC0006B640 /* selectBackg.png in Resources */,
 				B0DE58F416C6C6AC0006B640 /* selectBackg@2x.png in Resources */,
+				B0DE590416C6CADB0006B640 /* ShopCell.xib in Resources */,
+				B0DE590916C6CB4D0006B640 /* ToolbarCell.xib in Resources */,
+				B0DE590C16C6E5E80006B640 /* 22-location-arrow.png in Resources */,
+				B0DE590D16C6E5E80006B640 /* 22-location-arrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +636,8 @@
 				B065B19416C6B6A700F5D941 /* Stripe.m in Sources */,
 				B065B19516C6B6A700F5D941 /* StripeError.m in Sources */,
 				B065B19916C6B78200F5D941 /* PaymentViewController.m in Sources */,
+				B0DE590316C6CADB0006B640 /* ShopCell.m in Sources */,
+				B0DE590816C6CB4D0006B640 /* ToolbarCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

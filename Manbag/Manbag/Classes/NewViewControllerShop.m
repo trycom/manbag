@@ -12,6 +12,7 @@
 #import "CentralViewController.h"
 #import "APICalls.h"
 #import "NewViewControllerBagsPhoto.h"
+#import "MBProgressHUD.h"
 
 
 @interface NewViewControllerShop ()
@@ -33,13 +34,67 @@
 {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processFoursquare:) name:@"FoursquareSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hudDisappear) name:@"FoursquareFail" object:nil];
     hasZoomed = NO;
+    self.title = @"Select Shop";
+    UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+    [titleLabel setTextColor:[UIColor blackColor]];
+    [titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+    [titleLabel setShadowColor:[UIColor whiteColor]];
+    [titleLabel setShadowOffset:CGSizeMake(0, -1)];
+    [titleLabel setBackgroundColor:[UIColor clearColor]];
+    titleLabel.text = self.title;
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.navigationItem.titleView = titleLabel;
     _locations = [[NSMutableArray alloc] init];
     UIBarButtonItem* logout = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(goCancel)];
+    [logout setTintColor:[UIColor lightGrayColor]];
     self.navigationItem.leftBarButtonItem = logout;
+    UIBarButtonItem* locate = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"22-location-arrow.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(resetSearch)];
+    [locate setTintColor:[UIColor blackColor]];
+    self.navigationItem.rightBarButtonItem = locate;
+
+    
     [_tv addParallelViewWithUIView:_map withDisplayRadio:0.5 cutOffAtMax:YES];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [_searchBar resignFirstResponder];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if (searchText.length > 0) {
+        [_searchBar setShowsCancelButton:YES animated:YES];
+    }
+    else {
+        [self resetSearch];
+    }
+}
+
+
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [self resetSearch];
+}
+
+- (void)resetSearch{
+    [_searchBar setShowsCancelButton:NO animated:YES];
+    [_searchBar resignFirstResponder];
+    _searchBar.text = @"";
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    APICalls* apiCalls = [[APICalls alloc] init];
+    [apiCalls getFoursquare:nil];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    [_searchBar setShowsCancelButton:NO animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    APICalls* apiCalls = [[APICalls alloc] init];
+    [apiCalls getFoursquare:_searchBar.text];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NewViewControllerBagsPhoto* newViewControllerBagsPhoto = [[NewViewControllerBagsPhoto alloc] init];
@@ -52,10 +107,12 @@
     static NSString *CellIdentifier = @"ProfileCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfileCell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ProfileCell"];
     }
     NSMutableDictionary* currentLocation = [_locations objectAtIndex:indexPath.row];
     cell.textLabel.text = [currentLocation objectForKey:@"name"];
+    cell.detailTextLabel.text= [currentLocation objectForKey:@"address"];
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     return cell;
 }
 
@@ -73,6 +130,7 @@
             if(annotationView.annotation == mv.userLocation) {
                 [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithDouble:mv.userLocation.location.coordinate.longitude] forKey:@"longitude"] ;
                 [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithDouble:mv.userLocation.location.coordinate.latitude] forKey:@"latitude"];
+                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                 APICalls* apiCalls = [[APICalls alloc] init];
                 [apiCalls getFoursquare:nil];
                 MKCoordinateRegion region;
@@ -81,7 +139,7 @@
                 span.longitudeDelta=0.1;
                 CLLocationCoordinate2D location=mv.userLocation.coordinate;
                 region = MKCoordinateRegionMakeWithDistance(location, 500, 500);
-                [mv setRegion:region animated:TRUE];
+                [mv setRegion:region animated:NO];
                 [mv regionThatFits:region];
                 hasZoomed = YES;
             }
@@ -90,6 +148,7 @@
 }
 
 -(void)processFoursquare:(NSNotification *)notification{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     NSDictionary* foursquareDict = notification.userInfo;
     NSArray *itemsArray = [[[[foursquareDict objectForKey:@"response"] objectForKey:@"groups"] objectAtIndex:0] objectForKey:@"items"];
     [_locations removeAllObjects];
@@ -111,6 +170,10 @@
     NSLog(@"items array is %@", itemsArray);
 }
 
+- (void)hudDisappear{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+}
+
 - (void)goCancel{
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -125,6 +188,7 @@
 - (void)viewDidUnload {
     [self setTv:nil];
     [self setMap:nil];
+    [self setSearchBar:nil];
     [super viewDidUnload];
 }
 

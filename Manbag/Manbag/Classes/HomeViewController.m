@@ -13,6 +13,8 @@
 #import "CentralViewController.h"
 #import "bagPoints.h"
 #import "DeliveryAddressViewController.h"
+#import "ToolbarCell.h"
+#import "ShopCell.h"
 
 @interface HomeViewController ()
 
@@ -52,18 +54,85 @@
     [self updateBags];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"ProfileCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfileCell"];
+    int row = indexPath.row;
+    NSLog(@"Making view %d", row);
+    switch (row) {
+        case 0:
+        {
+            static NSString *CellIdentifier = @"ToolbarCell";
+            ToolbarCell *cell = (ToolbarCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil) {
+                NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ToolbarCell" owner:self options:nil];
+                for (id currentObject in topLevelObjects){
+                    if ([currentObject isKindOfClass:[UITableViewCell class]]){
+                        cell =  (ToolbarCell *) currentObject;
+                        break;
+                    }
+                }
+            }
+            UIImage* counterBackg = [UIImage imageNamed:@"counter.png"];
+            UIImage* stretchCounter = [counterBackg stretchableImageWithLeftCapWidth:5 topCapHeight:5];
+            cell.bagCountBackg.image = stretchCounter;
+            cell.slotBackg.image = stretchCounter;
+            int i = 0;
+            int bagCount = 0;
+            for (i=0; i< [_bags count]; i++) {
+                NSMutableDictionary* currentBag = [_bags objectAtIndex:i];
+                bagCount = bagCount + [[currentBag objectForKey:@"number"] intValue];
+            }
+            if (bagCount > 0) {
+                [cell.finishButton setEnabled:YES];
+                cell.slotBackg.alpha = 1.0;
+                cell.slotLabel.alpha = 1.0;
+                cell.slotTitle.alpha = 1.0;
+            }
+            else {
+                [cell.finishButton setEnabled:NO];
+                cell.slotBackg.alpha = 0.0;
+                cell.slotLabel.alpha = 0.0;
+                cell.slotTitle.alpha = 0.0;
+            }
+            cell.bagCounter.text = [NSString stringWithFormat:@"%d", bagCount];
+            return cell;
+            
+        }
+            break;
+        default:
+        {
+            
+            static NSString *CellIdentifier = @"ShopCell";
+            ShopCell *cell = (ShopCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil) {
+                NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ShopCell" owner:self options:nil];
+                for (id currentObject in topLevelObjects){
+                    if ([currentObject isKindOfClass:[UITableViewCell class]]){
+                        cell =  (ShopCell *) currentObject;
+                        break;
+                    }
+                }
+            }
+            int adjustedRow = row - 1;
+            NSMutableDictionary* currentBag = [_bags objectAtIndex:adjustedRow];
+            cell.shopName.text = [currentBag objectForKey:@"shopName"];
+            cell.bagCounter.text = [NSString stringWithFormat:@"%d", [[currentBag objectForKey:@"number"]intValue]];
+            return cell;
+        }
+            break;
     }
-    NSMutableDictionary* currentBag = [_bags objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%d bags - %@" ,[[currentBag objectForKey:@"number"]intValue], [currentBag objectForKey:@"shopName"]];
-    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    int row = indexPath.row;
+    switch (row) {
+        case 0:
+            return 44;
+            break;
+        default:
+            return 56;
+            break;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -71,15 +140,28 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    int adjustedRow = indexPath.row - 1;
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self deleteBag:[_bags objectAtIndex:indexPath.row]];
-        [_bags removeObjectAtIndex:indexPath.row];
+        [self deleteBag:[_bags objectAtIndex:adjustedRow]];
+        [_bags removeObjectAtIndex:adjustedRow];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
     }
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    int row = indexPath.row;
+    switch (row) {
+        case 0:
+            return NO;
+            break;
+        default:
+            return YES;
+            break;
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_bags count];
+    return [_bags count]+1;
 }
 
 - (void)mapView:(MKMapView *)mv didAddAnnotationViews:(NSArray *)views {
@@ -105,6 +187,8 @@
 - (void)goNew{
     NewViewControllerShop* newViewControllerShop = [[NewViewControllerShop alloc] init];
     UINavigationController* newNavController = [[UINavigationController alloc] initWithRootViewController:newViewControllerShop];
+    UIImage* barBackground = [UIImage imageNamed:@"navBar.png"];
+    [newNavController.navigationBar setBackgroundImage:barBackground forBarMetrics:UIBarMetricsDefault];
     [self presentModalViewController:newNavController animated:YES];
 }
 
@@ -115,6 +199,9 @@
 }
 
 - (void)updateBags{
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+    {
     PFQuery *query = [PFQuery queryWithClassName:@"Bag"];
     [query whereKey:@"owner" equalTo:[PFUser currentUser]];
     [query whereKey:@"delivered" equalTo:[NSNumber numberWithBool:NO]];
@@ -140,7 +227,8 @@
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-    [self validate];
+    }
+    }
 }
 
 - (void)deleteBag:(NSMutableDictionary *)bag{

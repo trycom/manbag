@@ -32,8 +32,33 @@
     _chosenPhoto = nil;
     [self validate];
     [self fillBagScroller];
-    self.title = [_pickUpLocation objectForKey:@"name"];
-    // Do any additional setup after loading the view from its nib.
+    self.title = @"New Bag";
+    UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+    [titleLabel setTextColor:[UIColor blackColor]];
+    [titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+    [titleLabel setShadowColor:[UIColor whiteColor]];
+    [titleLabel setShadowOffset:CGSizeMake(0, -1)];
+    [titleLabel setBackgroundColor:[UIColor clearColor]];
+    titleLabel.text = self.title;
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.navigationItem.titleView = titleLabel;
+    UIBarButtonItem* logout = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(goCancel)];
+    [logout setTintColor:[UIColor lightGrayColor]];
+    self.navigationItem.leftBarButtonItem = logout;
+    _shopTitle.text = [_pickUpLocation objectForKey:@"name"];
+    MKCoordinateRegion region;
+    MKCoordinateSpan span;
+    span.latitudeDelta=0.1;
+    span.longitudeDelta=0.1;
+    CLLocationCoordinate2D location= CLLocationCoordinate2DMake([[_pickUpLocation objectForKey:@"lat"] doubleValue], [[_pickUpLocation objectForKey:@"lng"] doubleValue]);
+    region = MKCoordinateRegionMakeWithDistance(location, 400, 400);
+    [_map setRegion:region animated:NO];
+    [_map regionThatFits:region];
+    _leftArrow.alpha = 0.0;
+}
+
+- (void)goCancel{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)fillBagScroller{
@@ -45,6 +70,8 @@
         [numberLabel setTextAlignment:NSTextAlignmentCenter];
         [numberLabel setFont:[UIFont boldSystemFontOfSize:46]];
         [numberLabel setText:[NSString stringWithFormat:@"%d", i+1]];
+        [numberLabel setTextColor:[UIColor whiteColor]];
+        [numberLabel setBackgroundColor:[UIColor clearColor]];
         [_bagSelector addSubview:numberLabel];
         [_bagSelector setContentSize:CGSizeMake(width*i, 0)];
     }
@@ -61,6 +88,9 @@
     [self setBagSelector:nil];
     [self setPreviewImage:nil];
     [self setDoneBtn:nil];
+    [self setLeftArrow:nil];
+    [self setShopTitle:nil];
+    [self setMap:nil];
     [super viewDidUnload];
 }
 
@@ -104,10 +134,20 @@
     [self validate];
 }
 
-- (void)validate{
+- (void)validate{    
     int i = 0;
     if (bagNumber == 0) {
         i++;
+    }
+    if (bagNumber == 1) {
+        [UIView animateWithDuration:0.5 animations:^{
+            _leftArrow.alpha = 0.0;
+        }];
+    }
+    else {
+        [UIView animateWithDuration:0.5 animations:^{
+            _leftArrow.alpha = 1.0;
+        }];
     }
     NSData *imageData = UIImagePNGRepresentation(_chosenPhoto);
 

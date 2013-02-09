@@ -126,12 +126,11 @@
 
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    float fractionalPage = scrollView.contentOffset.x / 320;
+    float fractionalPage = scrollView.contentOffset.x / _bagSelector.frame.size.width;
     NSInteger page = lround(fractionalPage);
     bagNumber = page + 1;
+    [self validate];
 }
-
-
 
 - (IBAction)goDone:(id)sender {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];

@@ -45,7 +45,6 @@
 - (void)viewDidAppear:(BOOL)animated{
     int dynamicHeight = [UIScreen mainScreen].bounds.size.height - 20 - 44;
     [self.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
-    NSLog(@"Home view height is %f", self.view.frame.size.height);
     [self updateBags];
 }
 
@@ -117,6 +116,7 @@
     [query whereKey:@"delivered" equalTo:[NSNumber numberWithBool:NO]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
+            NSLog(@"Works");
             _bags = [objects mutableCopy];
             int i;
             [_map removeAnnotations:_map.annotations];
@@ -130,6 +130,7 @@
             }
             [_tv reloadData];
         } else {
+            NSLog(@"Doesn't work");
             AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
             [appDelegate.centralViewController showError:@"Couldn't update shopping"];
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -151,13 +152,6 @@
 }
 
 - (void)validate{
-    if ([_bags count] > 0) {
-        [_doneBtn setEnabled:YES];
-    }
-    else {
-        [_doneBtn setEnabled:NO];
-
-    }
 }
 
 - (IBAction)goDone:(id)sender {

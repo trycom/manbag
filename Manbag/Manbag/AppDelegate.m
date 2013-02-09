@@ -17,7 +17,7 @@
     self.window.rootViewController = _centralViewController;
     [Parse setApplicationId:@"sBpe1z5wsD3GI6WVX32dJh212G0jj8toAWgF5PnV"
                   clientKey:@"F2KD6jxsIqMQRS0wQBLNkG6BuoCnz147uS8ojIeR"];
-    [PFFacebookUtils initializeWithApplicationId:@"147922898699345"];
+    [PFFacebookUtils initializeWithApplicationId:@"493766177326993"];
     [self.window makeKeyAndVisible];
     return YES;
 }

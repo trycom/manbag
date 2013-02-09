@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CentralViewController : UIViewController
+@interface CentralViewController : UIViewController {
+    int dynamicHeight;
+}
 
 @property (strong, nonatomic) IBOutlet UIView *mainView;
 @property (strong, nonatomic) IBOutlet UIView *topView;

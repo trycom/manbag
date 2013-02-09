@@ -37,6 +37,7 @@
 		B073484E16C5CDC400A7B961 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B073484416C5CDC400A7B961 /* LoginViewController.m */; };
 		B073484F16C5CDC400A7B961 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B073484516C5CDC400A7B961 /* LoginViewController.xib */; };
 		B073485016C5CDC400A7B961 /* UITableView+ZGParallelView.m in Sources */ = {isa = PBXBuildFile; fileRef = B073484816C5CDC400A7B961 /* UITableView+ZGParallelView.m */; };
+		B073485216C5CF6600A7B961 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B073485116C5CF6600A7B961 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		B073484516C5CDC400A7B961 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		B073484716C5CDC400A7B961 /* UITableView+ZGParallelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+ZGParallelView.h"; sourceTree = "<group>"; };
 		B073484816C5CDC400A7B961 /* UITableView+ZGParallelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+ZGParallelView.m"; sourceTree = "<group>"; };
+		B073485116C5CF6600A7B961 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B073485216C5CF6600A7B961 /* MapKit.framework in Frameworks */,
 				B073481E16C5BE2200A7B961 /* SystemConfiguration.framework in Frameworks */,
 				B073481C16C5BE1E00A7B961 /* StoreKit.framework in Frameworks */,
 				B073481A16C5BE1900A7B961 /* Social.framework in Frameworks */,
@@ -128,6 +131,7 @@
 		B07347DF16C5BD1500A7B961 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B073485116C5CF6600A7B961 /* MapKit.framework */,
 				B073481D16C5BE2200A7B961 /* SystemConfiguration.framework */,
 				B073481B16C5BE1E00A7B961 /* StoreKit.framework */,
 				B073481916C5BE1900A7B961 /* Social.framework */,

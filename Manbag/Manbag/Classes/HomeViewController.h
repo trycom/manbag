@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+    BOOL hasZoomed;
+}
+
+@property (strong, nonatomic) IBOutlet UITableView *tv;
+@property (strong, nonatomic) IBOutlet MKMapView *map;
 
 @end

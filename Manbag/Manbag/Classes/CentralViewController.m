@@ -29,17 +29,26 @@
 {
     [super viewDidLoad];
     PFUser *currentUser = [PFUser currentUser];
-    HomeViewController *homeViewController = [[HomeViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
-    [self addChildViewController:navController];
-    [_mainView addSubview:navController.view];
-    [navController didMoveToParentViewController:self];
     if (currentUser) {
         [self hideTop];
     } else {
         [self showTop];
         [self showLogin];
     }
+    dynamicHeight = [UIScreen mainScreen].bounds.size.height - 20;
+    HomeViewController *homeViewController = [[HomeViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
+    [self addChildViewController:navController];
+    [navController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
+    [_mainView addSubview:navController.view];
+    [navController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
+    [_mainView setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
+    [navController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
+    [homeViewController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
+    [navController didMoveToParentViewController:self];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
 }
 
 - (void)showLogin{
@@ -57,9 +66,11 @@
     _topView.alpha = 0.0;
 }
 
+
 - (void)showError:(NSString *)text{
     [[[UIAlertView alloc] initWithTitle:@"Error" message:text delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
 }
+
 
 - (void)didReceiveMemoryWarning
 {

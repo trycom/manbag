@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "AppDelegate.h"
 #import "CentralViewController.h"
+#import "MBProgressHUD.h"
 
 @interface LoginViewController ()
 
@@ -35,13 +36,17 @@
 }
 
 - (IBAction)goLogin:(id)sender {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [PFFacebookUtils logInWithPermissions:nil block:^(PFUser *user, NSError *error) {
         if (!user) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             [appDelegate.centralViewController showError:@"Log in failed. Please try again."];
         } else if (user.isNew) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             [appDelegate.centralViewController hideTop];
         } else {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             [appDelegate.centralViewController hideTop];
         }
     }];

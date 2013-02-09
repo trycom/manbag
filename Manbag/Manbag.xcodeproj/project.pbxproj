@@ -30,12 +30,13 @@
 		B073481A16C5BE1900A7B961 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B073481916C5BE1900A7B961 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B073481C16C5BE1E00A7B961 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B073481B16C5BE1E00A7B961 /* StoreKit.framework */; };
 		B073481E16C5BE2200A7B961 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B073481D16C5BE2200A7B961 /* SystemConfiguration.framework */; };
-		B073482216C5C09D00A7B961 /* CentralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B073482016C5C09D00A7B961 /* CentralViewController.m */; };
-		B073482316C5C09D00A7B961 /* CentralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B073482116C5C09D00A7B961 /* CentralViewController.xib */; };
-		B073482716C5C27D00A7B961 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B073482516C5C27D00A7B961 /* LoginViewController.m */; };
-		B073482816C5C27D00A7B961 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B073482616C5C27D00A7B961 /* LoginViewController.xib */; };
-		B073483616C5C7D400A7B961 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B073483416C5C7D400A7B961 /* HomeViewController.m */; };
-		B073483716C5C7D400A7B961 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B073483516C5C7D400A7B961 /* HomeViewController.xib */; };
+		B073484A16C5CDC400A7B961 /* CentralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B073483E16C5CDC400A7B961 /* CentralViewController.m */; };
+		B073484B16C5CDC400A7B961 /* CentralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B073483F16C5CDC400A7B961 /* CentralViewController.xib */; };
+		B073484C16C5CDC400A7B961 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B073484116C5CDC400A7B961 /* HomeViewController.m */; };
+		B073484D16C5CDC400A7B961 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B073484216C5CDC400A7B961 /* HomeViewController.xib */; };
+		B073484E16C5CDC400A7B961 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B073484416C5CDC400A7B961 /* LoginViewController.m */; };
+		B073484F16C5CDC400A7B961 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B073484516C5CDC400A7B961 /* LoginViewController.xib */; };
+		B073485016C5CDC400A7B961 /* UITableView+ZGParallelView.m in Sources */ = {isa = PBXBuildFile; fileRef = B073484816C5CDC400A7B961 /* UITableView+ZGParallelView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,15 +67,17 @@
 		B073481916C5BE1900A7B961 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		B073481B16C5BE1E00A7B961 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B073481D16C5BE2200A7B961 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		B073481F16C5C09D00A7B961 /* CentralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CentralViewController.h; sourceTree = "<group>"; };
-		B073482016C5C09D00A7B961 /* CentralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CentralViewController.m; sourceTree = "<group>"; };
-		B073482116C5C09D00A7B961 /* CentralViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CentralViewController.xib; sourceTree = "<group>"; };
-		B073482416C5C27D00A7B961 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		B073482516C5C27D00A7B961 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		B073482616C5C27D00A7B961 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		B073483316C5C7D300A7B961 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		B073483416C5C7D400A7B961 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		B073483516C5C7D400A7B961 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		B073483D16C5CDC400A7B961 /* CentralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CentralViewController.h; sourceTree = "<group>"; };
+		B073483E16C5CDC400A7B961 /* CentralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CentralViewController.m; sourceTree = "<group>"; };
+		B073483F16C5CDC400A7B961 /* CentralViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CentralViewController.xib; sourceTree = "<group>"; };
+		B073484016C5CDC400A7B961 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		B073484116C5CDC400A7B961 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		B073484216C5CDC400A7B961 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		B073484316C5CDC400A7B961 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		B073484416C5CDC400A7B961 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		B073484516C5CDC400A7B961 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		B073484716C5CDC400A7B961 /* UITableView+ZGParallelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+ZGParallelView.h"; sourceTree = "<group>"; };
+		B073484816C5CDC400A7B961 /* UITableView+ZGParallelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+ZGParallelView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,8 +152,9 @@
 		B07347E616C5BD1500A7B961 /* Manbag */ = {
 			isa = PBXGroup;
 			children = (
-				B073482A16C5C28B00A7B961 /* Resources */,
-				B073482916C5C28300A7B961 /* Classes */,
+				B073483C16C5CDC400A7B961 /* Classes */,
+				B073484616C5CDC400A7B961 /* External */,
+				B073484916C5CDC400A7B961 /* Resources */,
 				B07347EF16C5BD1500A7B961 /* AppDelegate.h */,
 				B07347F016C5BD1500A7B961 /* AppDelegate.m */,
 				B07347E716C5BD1500A7B961 /* Supporting Files */,
@@ -172,27 +176,36 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B073482916C5C28300A7B961 /* Classes */ = {
+		B073483C16C5CDC400A7B961 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B073481F16C5C09D00A7B961 /* CentralViewController.h */,
-				B073482016C5C09D00A7B961 /* CentralViewController.m */,
-				B073482116C5C09D00A7B961 /* CentralViewController.xib */,
-				B073483316C5C7D300A7B961 /* HomeViewController.h */,
-				B073483416C5C7D400A7B961 /* HomeViewController.m */,
-				B073483516C5C7D400A7B961 /* HomeViewController.xib */,
-				B073482416C5C27D00A7B961 /* LoginViewController.h */,
-				B073482516C5C27D00A7B961 /* LoginViewController.m */,
-				B073482616C5C27D00A7B961 /* LoginViewController.xib */,
+				B073483D16C5CDC400A7B961 /* CentralViewController.h */,
+				B073483E16C5CDC400A7B961 /* CentralViewController.m */,
+				B073483F16C5CDC400A7B961 /* CentralViewController.xib */,
+				B073484016C5CDC400A7B961 /* HomeViewController.h */,
+				B073484116C5CDC400A7B961 /* HomeViewController.m */,
+				B073484216C5CDC400A7B961 /* HomeViewController.xib */,
+				B073484316C5CDC400A7B961 /* LoginViewController.h */,
+				B073484416C5CDC400A7B961 /* LoginViewController.m */,
+				B073484516C5CDC400A7B961 /* LoginViewController.xib */,
 			);
-			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
-		B073482A16C5C28B00A7B961 /* Resources */ = {
+		B073484616C5CDC400A7B961 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				B073484716C5CDC400A7B961 /* UITableView+ZGParallelView.h */,
+				B073484816C5CDC400A7B961 /* UITableView+ZGParallelView.m */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		B073484916C5CDC400A7B961 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,9 +263,9 @@
 				B07347F316C5BD1500A7B961 /* Default.png in Resources */,
 				B07347F516C5BD1500A7B961 /* Default@2x.png in Resources */,
 				B07347F716C5BD1500A7B961 /* Default-568h@2x.png in Resources */,
-				B073482316C5C09D00A7B961 /* CentralViewController.xib in Resources */,
-				B073482816C5C27D00A7B961 /* LoginViewController.xib in Resources */,
-				B073483716C5C7D400A7B961 /* HomeViewController.xib in Resources */,
+				B073484B16C5CDC400A7B961 /* CentralViewController.xib in Resources */,
+				B073484D16C5CDC400A7B961 /* HomeViewController.xib in Resources */,
+				B073484F16C5CDC400A7B961 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,9 +278,10 @@
 			files = (
 				B07347ED16C5BD1500A7B961 /* main.m in Sources */,
 				B07347F116C5BD1500A7B961 /* AppDelegate.m in Sources */,
-				B073482216C5C09D00A7B961 /* CentralViewController.m in Sources */,
-				B073482716C5C27D00A7B961 /* LoginViewController.m in Sources */,
-				B073483616C5C7D400A7B961 /* HomeViewController.m in Sources */,
+				B073484A16C5CDC400A7B961 /* CentralViewController.m in Sources */,
+				B073484C16C5CDC400A7B961 /* HomeViewController.m in Sources */,
+				B073484E16C5CDC400A7B961 /* LoginViewController.m in Sources */,
+				B073485016C5CDC400A7B961 /* UITableView+ZGParallelView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

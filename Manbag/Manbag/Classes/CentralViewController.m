@@ -44,6 +44,8 @@
     [navController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
     [_mainView setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
     [navController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
+    UIImage* barBackground = [UIImage imageNamed:@"navBar.png"];
+    [navController.navigationBar setBackgroundImage:barBackground forBarMetrics:UIBarMetricsDefault];
     [homeViewController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
     [navController didMoveToParentViewController:self];
 }

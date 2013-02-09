@@ -34,10 +34,14 @@
     hasZoomed = NO;
     [_tv addParallelViewWithUIView:_map withDisplayRadio:0.5 cutOffAtMax:YES];
     UIBarButtonItem* addNew = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(goNew)];
+    [addNew setTintColor:[UIColor blackColor]];
     self.navigationItem.rightBarButtonItem = addNew;
     UIBarButtonItem* logout = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:self action:@selector(goLogout)];
+    [logout setTintColor:[UIColor blackColor]];
     self.navigationItem.leftBarButtonItem = logout;
     _bags = [[NSMutableArray alloc] init];
+    UIImageView* titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navIcon.png"]];
+    [self.navigationItem setTitleView:titleView];
     [self validate];
 
 }

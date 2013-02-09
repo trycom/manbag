@@ -8,16 +8,13 @@
 
 #import "AppDelegate.h"
 
-#import "ViewController.h"
-
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    _centralViewController = [[CentralViewController alloc] init];
+    self.window.rootViewController = _centralViewController;
     [Parse setApplicationId:@"sBpe1z5wsD3GI6WVX32dJh212G0jj8toAWgF5PnV"
                   clientKey:@"F2KD6jxsIqMQRS0wQBLNkG6BuoCnz147uS8ojIeR"];
     [PFFacebookUtils initializeWithApplicationId:@"147922898699345"];

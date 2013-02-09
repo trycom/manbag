@@ -7,14 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
-
-@class ViewController;
+#import "CentralViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) ViewController *viewController;
+@property (strong, nonatomic) CentralViewController* centralViewController;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LoginViewController.h
 //  Manbag
 //
 //  Created by Roy Marmelstein on 08/02/2013.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface LoginViewController : UIViewController
+
+- (IBAction)goLogin:(id)sender;
 
 @end

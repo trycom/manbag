@@ -1,0 +1,11 @@
+.icon.muted {
+	color: #F1F1F1;
+}
+
+.clothes-icon.muted {
+	@include opacity(35);
+}
+
+.icon-green {
+	color: #5eb744;
+}

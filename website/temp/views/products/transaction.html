@@ -1,0 +1,56 @@
+<div recurly-js payload="buyCtrl.product.getRecurlyPayload()" callback="receiveRecurlyToken">
+	<div class="row-fluid top-margin withRadius receipt bottom-margin">
+
+		<div class="receipt-printer-bg grey-back withRadius"></div>
+		<div class="row-fluid max-width-400 grey-back receipt-printer withRadius">
+			<div class="receipt-shadow shadow-trick-holder mobile-margin">
+				<div class="shadow-trick bottom"></div>	
+			</div>
+			
+			
+		</div>
+		<div class="receipt-paper-holder fullWidth">
+			<div class="receipt-paper mobile-margin withShadow" id="receiptPaper">
+				<div class="paid-message-container white-back center-align">
+					<div id="animateReceipt" class="paid-message top-padding bottom-padding trans">
+						<h1 class="punchy red">PAID</h1>
+						<h2 class="punchy">You just got BRAND<span class="lowercase">i</span>D</h2>
+						<div class="small-share-container top-margin bottom-margin clearfix">
+							<div class="fb-share pull-left">
+								<a class="fb-share-small" href="https://www.facebook.com/sharer.php?u=http://www.getbrandid.com"></a>
+							</div>
+							<div class="twitter-share small-left-margin pull-left">
+								<a class="tw-share-small" href="http://twitter.com/share?text=I%20just%20got%20%40BRANDiD"></a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="white-back bottom-padding">
+					<div class="horizontal-line full-fade bottom-margin"></div>
+				    <img class="small-left-margin media-object basket-image pull-left" ng-src="{{buyCtrl.product.getImageUrl()}}">
+					<div class="media-body clearfix center-align">
+						<h2 class="punchy media-heading">{{buyCtrl.product.getBrand()}}</h2>
+						<h3 class="punchy">£{{buyCtrl.product.getPrice()}}</h3>
+
+					</div>			
+
+				</div>
+
+				
+			</div>
+			<div class="receipt-bottom mobile-margin"></div>
+		</div>
+		
+	</div>
+	
+
+</div>
+
+<script type="text/javascript">
+	setTimeout(function() {
+		$('#animateReceipt').css('margin-top','-244px');
+	}, 500);
+	
+</script>

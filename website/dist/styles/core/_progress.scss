@@ -1,0 +1,31 @@
+.progress {
+    padding-top:20px;
+    font-size: 24px;
+
+
+    .icon.muted {
+      color: #999;
+    }
+
+
+    .progress-item {
+      background: #a1a1a1;
+    }
+    .progress-item.active {
+      background: #5eb744;
+    }
+
+    .status-indicator {
+      display:none;
+    }
+
+    .status-indicator.active {
+      display:block;
+
+    }
+
+    .progress-item-holder.active {
+      color: #FFF;
+    }
+
+  }

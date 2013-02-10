@@ -1,0 +1,1 @@
+"use strict";var manbagApp=angular.module("manbagApp",[]).config(["$routeProvider",function(a){a.when("/",{templateUrl:"views/main.html",controller:"MainCtrl"}).otherwise({redirectTo:"/"})}]);"use strict",manbagApp.controller("MainCtrl",["$scope",function(a){a.awesomeThings=["HTML5 Boilerplate","AngularJS","Testacular"]}]);

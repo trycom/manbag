@@ -1,0 +1,32 @@
+<div class="slide-container clearfix fadeIn ani">
+  <form ng-controller="SuccessFormController">
+    <div class="curved-white-block withShadow withRadius">
+      
+      <div class="fullWidth clearfix">
+        <h1 class="question-title">{{successTitle}}</h1>
+        
+        <br/>
+        <span class="bold">Brands:</span> <span class="basket-items">{{basket.brands}}</span><br/>
+      
+        <span class="bold">Size:</span> <span class="basket-items">{{basket.size}}</span><br/>
+        <span class="bold">Colours:</span> <span class="basket-items">{{basket.colours}}</span><br/>
+        <span class="bold">Specifics:</span> <span class="basket-items">{{basket.specifics}}</span>
+
+        <br/>
+        <br/>
+        <div class="incentive-message float-left question" class="question" typewriter>{{successCopy}}</div>
+        
+        <!-- <h1 class="question-title">{{basketTitle}}</h1> -->
+
+      </div>
+      
+    </div>
+    <div class="next-question-button-section clearfix">
+      <button class="convert submit checkout" type="submit" href="#/male/">
+            Configure another item
+      </button>
+    </div>
+  </form>
+
+  
+</div>

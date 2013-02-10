@@ -1,0 +1,177 @@
+$marginPaddingSize: 5%;
+
+.big-profile-img {
+  border: 3px solid #FFF;
+}
+
+
+.profile-page {
+  @include border-radius(4px);
+
+  
+
+  .gallery {
+    background: #000;
+    height:225px;
+  }
+
+
+  .nav-tabs {
+    width: 250px;
+  }
+
+}
+
+.item-block {
+
+
+  .icon {
+     line-height: 40px;
+     font-size: 24px;
+  }
+  
+  .icon-circle {
+    color: #cfcfcf;
+  }
+
+}
+
+.item-block:hover {
+  background: #F9F9F9;
+}
+
+
+
+.grey-tabs {
+
+  
+
+
+  .item-block {
+    cursor: pointer;
+    background: #FFF;
+    @include border-radius(4px);
+
+    .media-heading {
+      margin-left: $marginPaddingSize;
+    }
+
+  }
+
+  .grid-item {
+    padding:4%;
+    width: 92%;
+  }
+
+  .table-row {
+
+    padding: 4%;
+    width: 92%;
+    
+
+    
+
+  }
+
+  .nav-tabs {
+    margin-bottom: 0;
+
+    li.active a {
+      @extend .grey-back;
+      color: #000;
+    }
+
+    ul li a {
+      padding:$marginPaddingSize;
+
+    }
+    .icon-large {
+      font-size: 24px;
+      clear:both;
+    }    
+  }
+
+
+  .tab-content {
+    padding: $marginPaddingSize;
+    @include border-top-radius(4px);
+    
+    border-bottom: 1px solid #ddd;
+  }
+
+}
+
+
+/* TAGS */
+
+.tags {
+  .item-status-holder {
+    position: relative;
+  }
+  
+  .clothing-icon {
+    margin-left:2%;
+  }
+
+  span.badge-tags {
+    margin: 13px 13px 0 0;
+  }
+
+  .clothing-status {
+    position: absolute;
+    top: -45px;
+    left: -31px;
+    background: #FFF;
+    border-radius: 500px;
+    height: 38px;
+    width: 38px;
+    border: 2px solid #5eb744;
+
+    .icon {
+      margin-left: 4px;
+      font-size: 34px;
+    }
+
+    .icon-plus-sign {
+      display:none;
+    }
+
+  }
+
+}
+
+.coming-soon {
+  @include opacity(30);
+  cursor: auto !important;
+}
+
+
+
+
+/* Large desktop */
+@media (min-width: 1200px) { 
+
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+
+  
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+  .tags {
+    .clothing-status {
+      top: -31px;
+      left: -46px;
+    }
+  }
+}
+
+

@@ -1,0 +1,45 @@
+.row-fluid {
+
+	.one-third, .one-sixth, .two-thirds {
+		margin-right:0;
+		margin-left:0;
+		padding-right:0;
+		padding-left:0;
+		border:none;
+		float:left;
+	}
+
+	.one-third {
+		width:33%;
+	}
+	.two-thirds {
+		width:66%;
+	}
+	.one-sixth {
+		width:16.5%;
+	}
+}
+
+
+.width-padding {
+	padding-left: 4%;
+	padding-right: 4%;
+	width: 92%;
+}
+
+.width-margin {
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 90%;
+}
+
+.max-width-600 {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+
+.max-width-400 {
+	max-width: 400px;
+	margin: 0 auto;
+}

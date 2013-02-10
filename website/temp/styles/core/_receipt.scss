@@ -1,0 +1,55 @@
+.receipt {
+	
+	position: relative;
+	height: 167px;
+
+	img.basket-image {
+		height: 100px;
+		width: auto;
+
+	}
+	
+	.paid-message {
+		margin-top: -380px;
+		@include transition-duration(0.3s);
+		@include transition-timing-function(ease-out);
+
+	}
+
+	.receipt-bottom, .receipt-printer, .receipt-printer-bg {
+		clear: both;
+		height: 20px;
+		// margin: 16px -16px -20px;
+	}
+
+	.receipt-bottom {
+		background: url('/images/receipt/receipt-bottom.png') repeat-x top left;
+	}
+	.receipt-shadow {
+
+	}
+	.receipt-printer-bg {
+		background: #CFCFCF;
+		@include box-shadow(rgba(black, 0.4) 0 1px 4px 2px inset);
+		@include border-radius(900px);
+	}
+
+	.receipt-paper-holder {
+		overflow: hidden;
+		position: absolute;
+		z-index: 10;
+		top: 0;
+
+	}
+
+	.receipt-printer {
+		position:absolute;
+		z-index: 9000;
+		height: 0px;
+		// border-top: 1px solid #595959;
+		top:0;
+		// background: #595959;
+	}
+
+
+}

@@ -1,0 +1,169 @@
+<div class="new-job-page big-bottom-margin" ng-controller="NewJobController" ng-hide="formIsOver">
+
+
+  <div class="grey-back container withRadius">
+  
+      
+      <div class="accordion white-back" id="male-accordian">
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#male-accordian" href="#collapseOne">
+              <h2 class="darkest-text punchy">I need: </h2> <img ng-src="/images/ignore/clothes-icons/icon-{{currentCategory}}-50.png" alt="" class="clothes-icon small-left-margin muted">
+              <h2 class="pull-right muted small-right-margin"><i class="icon icon-cog icon-large"></i></h2>
+            </a>
+          </div>
+
+          <div id="collapseOne" class="accordion-body collapse in grey-back">
+            
+            <div class="shadow-trick-holder">
+              <div class="shadow-trick bottom"></div>
+            </div>
+            
+            <div class="accordion-inner row-fluid clearfix top-margin ">
+
+              <div class="row-fluid width-margin big-bottom-margin top-margin width-margin">
+                <span class="male-talking pull-left command-prompt" style="display:inline-block">M.A.L.E. > </span> <span class="small-left-margin pull-left male-talking question" typewriter speak="'What are you looking for?'"></span>
+              </div>
+
+              <div class="span4or6 bottom-margin" ng-repeat="category in missionCtrl.categories" ng-class="{'first3': $index%3==0,'last3': $index%3==2, 'even': $index%2==1}">
+                
+                <div class="center-align withRadius white-back width-margin">
+                  <a href="" class="btn btn-secondary withRadius withShadow " ng-click="selectProduct(category); category.isActive=true;" ng-class="{'active':category.isActive}">
+                    <img ng-src="/images/ignore/clothes-icons/icon-{{category.name}}-large.png" alt="" class="scale-with-grid">
+                    <h2 class="darkest-text punchy">{{category.name}}</h2>
+                  </a>
+                  
+                </div>
+
+              </div>
+            </div> <!-- accordion-inner -->
+
+            <div ng-include src="tagQuestionView"></div>
+
+          </div> <!-- accordion body -->
+
+          
+        </div> <!-- accordion group -->
+
+        <div class="horizontal-line full-fade"></div>
+
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#male-accordian" href="#collapseTwo">
+              <h2 class="darkest-text punchy">Size: </h2> <h2 class="small-left-margin punchy muted">{{chosenSize}} </h2>
+              <h2 class="pull-right muted small-right-margin"><i class="icon icon-cog icon-large"></i></h2>
+            </a>
+          </div>
+
+          <div id="collapseTwo" class="accordion-body collapse grey-back">
+            
+            <div class="shadow-trick-holder">
+              <div class="shadow-trick bottom"></div>
+            </div>
+            
+            <div class="accordion-inner row-fluid clearfix top-margin ">
+
+              <div class="row-fluid width-margin big-bottom-margin top-margin width-margin">
+                <span class="male-talking pull-left command-prompt" style="display:inline-block">M.A.L.E. > </span> <span class="small-left-margin pull-left male-talking question" typewriter speak="'What size are you?'"></span>
+              </div>
+
+              <div ng-include='"views/section/garms/category/generic/question_v5/size.html"'></div>
+
+              
+
+
+            </div> <!-- accordion-inner -->
+
+          </div> <!-- accordion body -->
+
+        </div> <!-- accordion group -->
+
+        <div class="horizontal-line full-fade"></div>
+
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#male-accordian" href="#collapseThree">
+              <h2 class="darkest-text punchy">Brands: </h2> <h2 class="small-left-margin punchy muted">{{brandsMessage}} </h2>
+              <h2 class="pull-right muted small-right-margin"><i class="icon icon-cog icon-large"></i></h2>
+            </a>
+          </div>
+
+          <div id="collapseThree" class="accordion-body collapse grey-back">
+            
+            <div class="shadow-trick-holder">
+              <div class="shadow-trick bottom"></div>
+            </div>
+            
+            <div class="accordion-inner row-fluid clearfix top-margin ">
+
+              <div class="row-fluid width-margin big-bottom-margin top-margin width-margin">
+                <span class="male-talking pull-left command-prompt" style="display:inline-block">M.A.L.E. > </span> <span class="small-left-margin pull-left male-talking question" typewriter speak="'What brands do you like?'"></span>
+              </div>
+
+              <div ng-include='"views/section/garms/category/generic/question_v5/brands.html"'></div>
+
+
+            </div> <!-- accordion-inner -->
+
+          </div> <!-- accordion body -->
+
+        </div> <!-- accordion group -->
+
+        <div class="horizontal-line full-fade"></div>
+
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#male-accordian" href="#collapseFour">
+              <h2 class="darkest-text punchy">Price: </h2> <h2 class="small-left-margin punchy muted">{{chosenPrice}}</h2>
+              <h2 class="pull-right muted small-right-margin"><i class="icon icon-cog icon-large"></i></h2>
+            </a>
+          </div>
+
+          <div id="collapseFour" class="accordion-body collapse grey-back">
+            
+            <div class="shadow-trick-holder">
+              <div class="shadow-trick bottom"></div>
+            </div>
+            
+            <div class="accordion-inner row-fluid clearfix top-margin ">
+
+              <div class="row-fluid width-margin big-bottom-margin top-margin width-margin">
+                <span class="male-talking pull-left command-prompt" style="display:inline-block">M.A.L.E. > </span> <span class="small-left-margin pull-left male-talking question" typewriter speak="'How much do you want to spend?'"></span>
+              </div>
+
+               <div ng-include='"views/section/garms/category/generic/question_v5/prices.html"'></div>
+
+
+            </div> <!-- accordion-inner -->
+
+          </div> <!-- accordion body -->
+
+        </div> <!-- accordion group -->
+
+      </div> <!-- accordion -->
+
+      <div class="big-top-margin bottom-margin grey-back mobile-padding row-fluid">
+        <a class="btn btn-large btn-primary btn-block max-width-400" ng-click="submitMission()">Submit Mission</a>
+      </div>
+
+  </div> <!-- container -->
+
+
+</div> <!-- new-job-page -->
+<!--<div ng-include='"views/me/missions/mission_submitted.html"' ng-show="formIsOver"></div>-->
+
+<script type="text/javascript">
+  $('#male-accordian').collapse({
+    toggle: false
+  });
+
+  $('#male-accordian').on('show', function () {
+    $('.question').css('display','none');
+  })
+
+  $('#male-accordian').on('shown', function () {
+    $('.question').css('display','inline-block');
+    $('.question').typewriter();
+
+  })
+</script>

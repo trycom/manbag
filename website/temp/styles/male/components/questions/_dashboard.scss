@@ -1,0 +1,33 @@
+// @import "compass";
+
+@mixin animate {
+	@include transition-property(all);
+	@include transition-duration(0.3s);
+	@include transition-timing-function(ease-in);
+}
+
+.question {
+	
+	
+	
+	.q-icon {
+		padding:20px;
+		font-size:20px;
+	}
+	a.list-item {
+		padding: 20px 2%;
+		display: block;
+		width: 96%;
+		height:100%;
+		color:#444;
+
+		.icon-chevron-right {
+			float:right;
+		}
+		@include animate;
+	}
+	a.list-item:hover {
+		background:#f1f1f1;
+		color:#222;
+	}
+}

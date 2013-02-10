@@ -1,0 +1,10 @@
+.new-job-page {
+	
+	.accordion {
+		@include border-top-radius(4px);
+	}
+	.accordion-group {
+		border: none;
+	}
+}
+

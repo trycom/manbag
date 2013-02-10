@@ -1,0 +1,44 @@
+<div class="fullscreen">
+
+  <div class="container margin-target">
+    
+
+    <div class="row-fluid mobile-padding max-width-600 white-back withShadow withRadius intro top-margin">
+      <div class="male-round">
+        <div class="male-holder">
+          <div id="male-colour" class="male-back">
+          </div>
+          
+          <img ng-src="images/male-round-white@2x.png" alt="M.A.L.E." class="male-round " title="feed the male"/>
+          <div class="male-label-box">
+            <span id="male-label">M.A.L.E.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="width-padding bottom-margin">
+        <span id="intro" class="male-talking" typewriter hide="btn-block" speak="maleIntroCtrl.step[1].copy"></span>
+      </div>
+
+    </div>
+
+    <div class="row-fluid mobile-padding top-margin big-bottom-margin">
+      <a ng-click="createNewJob()" class="btn max-width-600 btn-primary btn-large btn-block "> <i class="icon icon-pencil"></i> {{maleIntroCtrl.step[1].action}}</a>
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+  // make fullscreen
+  $(document).ready(function() {
+    homePage.maleCenter();
+  });
+
+  $(window).bind("resize", function () {
+    homePage.maleCenter();
+  });
+
+</script>

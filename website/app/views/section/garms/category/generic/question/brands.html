@@ -1,0 +1,80 @@
+<div class="slide-container clearfix fadeIn ani">
+            <div ng-controller="BrandsFormController">
+
+              <span id="brands" class="question" typewriter>{{question}}</span>
+
+              <!-- <div class="curved-white-block withShadow withRadius fadeIn ani">
+                <h1 class="question-title">{{questionTitle}}</h1>
+                
+              </div> -->
+
+                <div class="answers multi-button-set">
+                    
+                    <a class="convert secondary brands-auto-populator total-num-buttons-{{totalNumButtons}} first-{{$first}} last-{{$last}}" ng-click="chooseBrands(routeParams.category, brandsButton.brandType, $index)" ng-repeat="brandsButton in brandsButtons" ng-class="{active: brandsButton.isActive}">
+                      <div class="v-outer-container">
+
+                        <div class="v-inner-container">
+
+                          <div class="v-aligned-element">
+                            <span class="bigger-text">{{brandsButton.label}}</span><br/><span class="smaller-text">{{brandsButton.priceLower | currency: currencySymbol}} - {{brandsButton.priceUpper | currency: currencySymbol}}</span>
+                          </div>
+                        
+                        </div>
+
+                      </div>
+
+                    </a>
+
+                </div>
+                
+
+                <form name="addTagForm" class="type-tag-form" novalidate>
+                  
+                  <h1 class="big-top-margin question-title on-grey">{{myTagsTitle}}</h1>
+
+                  <div class="clearfix top-margin">
+                    <div class="male-font field-with-submit-button-container float-left">
+                      <input class="tag-input" type="text" ng-model="assets.typeahead.typeaheadValue" placeholder="Enter any brand" bs-typeahead="assets.typeahead.allBrands" autofocus="autofocus" required/>
+
+                      <button ng-hide="addTagForm.$invalid" type="submit" class="submit convert secondary" ng-click="typeTag()">Add</button>
+                    </div>
+                    <div class="input-tooltip float-left">
+                      {{tooltip}}
+                    </div>
+                  </div>
+
+                  
+
+                  <div class="big-top-margin selected-tags clearfix">
+                    <text-tag ng-repeat="tag in assets.selectedTags" label="tag.text" id="tag.id" is-selected="tag.isSelected" click-delegate="toggleTag"></text-tag>
+                  </div>
+
+                  <div class="big-top-margin next-question-button-section clearfix">
+                    <button class="convert submit" ng-click="saveAnswer()">
+                          Done!
+                    </button>
+                  </div>
+                  
+                  <hr class="big-top-margin"/>
+
+                  <h1 class="top-margin question-title on-grey">{{suggestionsTitle}}</h1>
+
+                  <div class="suggestions big-top-margin fullWidth" ng-repeat="brand in assets.allBrands">
+                    <div class="third-column">
+
+                      <div class="bottom-margin">
+                        <span class="question-title on-grey smaller">{{brand.label}}</span><br/>
+
+                        <span class="question-title on-grey">{{currencySymbol}}{{brand.data.priceRange.lower}} - {{currencySymbol}}{{brand.data.priceRange.upper}}</span>
+                      </div>
+                      <text-tag ng-repeat="tag in brand.data.tags" label="tag.text" id="tag.id" is-selected="tag.isSelected" click-delegate="toggleTag"></text-tag>
+                    </div>
+                  </div>
+
+                </form>
+
+            </div>
+
+            
+
+          </div>

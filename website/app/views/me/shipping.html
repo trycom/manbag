@@ -1,0 +1,127 @@
+
+<div class="container">
+
+	<div class="row-fluid center-align">
+	  <h1 class="punchy lightest-text text-shadow top-margin">{{shippingUpdateCtrl.shippingTitle}}</h1><br/>
+		<h5 class="light-text text-shadow normal-text">{{shippingUpdateCtrl.shippingCopy}}</h5><br/>	
+	</div>
+
+  <div class="row-fluid top-margin max-width-600" ng-show="shippingUpdateCtrl.shipping_address">
+    <div class="alert alert-success ani flash clearfix bottom-margin">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>{{shippingUpdateCtrl.alertTitle}}</strong> <span class="small-left-margin">{{shippingUpdateCtrl.alertCopy}}</span>
+    </div>
+  </div>
+
+	<div class="white-back withRadius withShadow clearfix fadeIn ani row-fluid max-width-600 big-bottom-margin">
+		<form name="shippingAddressForm"
+					id="shipping-address-form"
+					ng-controller="ShippingUpdateController"
+					ng-submit="saveShippingAddress()"
+					class="bottom-margin top-margin width-margin"
+		novalidate>
+
+	    <div class="control-group fullname-field row-fluid small-bottom-margin">
+  	  	<label class="control-label" for="fullname">
+  	  		<h4 class="punchy">{{shippingUpdateCtrl.form.fullname.label}}</h4>
+  	  	</label>
+				<div class="controls">
+					<input type="text"
+								ng-model="shippingUpdateCtrl.saveAttempt.fullname"
+								id="fullname"
+								placeholder="{{shippingUpdateCtrl.form.fullname.placeholder}}"
+					required>
+
+				</div>
+	    </div>
+
+	    <div class="control-group address1-field row-fluid small-bottom-margin">
+  	  	<label class="control-label" for="address1">
+  	  		<h4 class="punchy">{{shippingUpdateCtrl.form.address1.label}}</h4>
+  	  	</label>
+				<div class="controls">
+					<input type="text"
+								ng-model="shippingUpdateCtrl.saveAttempt.address1"
+								id="address1"
+								placeholder="{{shippingUpdateCtrl.form.address1.placeholder}}"
+					required>
+
+				</div>
+	    </div>
+
+	    <div class="control-group address2-field row-fluid small-bottom-margin">
+  	  	<label class="control-label" for="address2">
+  	  		<h4 class="punchy">{{shippingUpdateCtrl.form.address2.label}}</h4>
+  	  	</label>
+				<div class="controls">
+					<input type="text"
+								ng-model="shippingUpdateCtrl.saveAttempt.address2"
+								id="address2"
+								placeholder="{{shippingUpdateCtrl.form.address2.placeholder}}">
+
+				</div>
+	    </div>
+
+	    <div class="control-group city-field row-fluid small-bottom-margin">
+  	  	<label class="control-label" for="city">
+  	  		<h4 class="punchy">{{shippingUpdateCtrl.form.city.label}}</h4>
+  	  	</label>
+				<div class="controls">
+					<input type="text"
+								ng-model="shippingUpdateCtrl.saveAttempt.city"
+								id="city"
+								placeholder="{{shippingUpdateCtrl.form.city.placeholder}}"
+					required>
+
+				</div>
+	    </div>
+
+	    <div class="control-group region-field row-fluid small-bottom-margin">
+  	  	<label class="control-label" for="region">
+  	  		<h4 class="punchy">{{shippingUpdateCtrl.form.region.label}}</h4>
+  	  	</label>
+				<div class="controls">
+					<input type="text"
+								ng-model="shippingUpdateCtrl.saveAttempt.region"
+								id="region"
+								placeholder="{{shippingUpdateCtrl.form.region.placeholder}}">
+
+				</div>
+	    </div>
+			
+			<div class="control-group zip-field row-fluid small-bottom-margin">
+  	  	<label class="control-label" for="zip">
+  	  		<h4 class="punchy">{{shippingUpdateCtrl.form.zip.label}}</h4>
+  	  	</label>
+				<div class="controls">
+					<input type="text"
+								ng-model="shippingUpdateCtrl.saveAttempt.zip"
+								id="zip"
+								placeholder="{{shippingUpdateCtrl.form.zip.placeholder}}"
+					required>
+
+				</div>
+	    </div>
+
+	    <div class="control-group country-field row-fluid small-bottom-margin">
+  	  	<label class="control-label" for="country">
+  	  		<h4 class="punchy">{{shippingUpdateCtrl.form.country.label}}</h4>
+  	  	</label>
+				<div class="controls">
+					<select id="country" ui-select2 ng-model="shippingUpdateCtrl.saveAttempt.country">
+						<option value="">Select a Country</option>
+						<option value="{{country.name}}" ng-repeat="country in shippingUpdateCtrl.countries">{{country.name}}</option>
+					</select required>
+
+				</div>
+	    </div>
+
+
+	    <button type="submit" ng-disabled="shippingAddressForm.$invalid" class="btn btn-block btn-large btn-primary top-margin">Save</button>
+	  
+		  
+		</form>
+	</div>
+
+</div>
+

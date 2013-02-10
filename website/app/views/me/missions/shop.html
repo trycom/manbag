@@ -1,0 +1,47 @@
+<div class="container grey-back withRadius big-top-margin big-bottom-margin"> <!-- container -->
+
+  <div class="row-fluid top-margin bottom-margin width-padding">
+    
+    <div class="">
+      <div class="row-fluid top-margin bottom-margin clearfix">
+        <h1 class="punchy pull-left small-right-margin">Mission objective: </h1>
+        <img ng-src="/images/ignore/clothes-icons/icon-{{missionCtrl.missionObject.getCategory()}}-50.png" alt="{{missionCtrl.missionObject.getCategory()}}" class="clothes-icon small-right-margin pull-left"/>
+        <h1 class="punchy pull-left ">{{missionCtrl.missionObject.getCategory()}} {{missionCtrl.missionObject.getTitle()}}</h1> 
+
+      </div>
+      <div class="row-fluid">
+        <span class="male-talking command-prompt pull-left">M.A.L.E. > </span><span typewriter speak="missionCtrl.missionObject.getDescription()" class="normal-text male-talking pull-left small-left-margin"></span>
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- products -->
+  <div class="row-fluid width-padding">
+
+    <ul class="thumbnails bottom-margin top-margin">
+      <li class="span4or6 big-bottom-margin width-padding white-back withRadius withShadow" ng-repeat='product in missionCtrl.missionObject.getProducts()' ng-class="{'first3': $index%3==0,'last3': $index%3==2, 'even': $index%2==1}">
+        <div class="thumbnail clearfix center-align">
+          <img class="" src="{{product.getImageUrl()}}"/>
+          <div class="horizontal-line full-fade top-margin bottom-margin"></div>
+          <div class="caption">
+            <h2 class="punchy">{{product.getBrand()}}</h2>
+            <h3 class="punchy">£{{product.getPrice()}}</h3>
+            <div ng-repeat="tag in product.getTags()">{{tag}}</div>
+            <div class="top-margin bottom-margin clearfix">
+              <a ng-click="buyProduct(product.id)" class="btn btn-large btn-block btn-primary">BUY NOW</a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+  <div class="row-fluid top-margin big-bottom-margin width-padding center-align">
+        <div class="">
+          <h2 class="small-right-margin punchy">Not quite right?</h2><a ng-click="openIntercom()" class="btn btn-inverse btn-block max-width-600 btn-large btn-secondary"><i class="icon icon-comments-alt"></i> Feedback to your shopper for better results</a>
+        </div>
+      </div>
+
+
+</div>

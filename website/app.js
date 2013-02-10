@@ -4,44 +4,87 @@
  */
 
 var express = require('express'),
-  routes = require('./routes'),
-  api = require('./routes/api');
+  path = require('path'),
+  config = require('./config/config'),
+  fs = require('fs')
+  //api = require('./api');
 
 var app = module.exports = express();
 
-// Configuration
-
+// Configuration stuff
 app.configure(function(){
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(express.static(__dirname + '/public'));
   app.use(app.router);
 });
 
+var port;
+
+console.log(config.ManbagAppPath);
+
+// var api = require('./api');
+// app.use('/api',api);
+ 
+var serveStaticFiles = function(mode,app) {
+  if (mode == "development") {
+
+    // app.use(function(req,res,next){
+    //   if (req.host == "localhost") {
+    //     res.redirect("http://brandid.dev.com:3000"+req.url);
+      
+    //   }      else next()
+    // });
+
+
+    app.use(express.compress());  
+
+    app.use('/',express.static(config.ManbagAppPath));  
+    port = 3000;
+    //app.use('/male',express.static(config.ManbagAppPath));
+  } else if (mode == "production") {
+
+    // Redirect to www.manb.ag
+    app.use(function(req,res,next){
+      if (req.host == "manb.ag") {
+        res.redirect(301,"http://www.manb.ag"+req.url);
+      } 
+      else next();
+    });
+
+    port = 3000;
+    var oneYear = 31557600000;
+
+    app.use(express.compress());
+    app.use('/',express.static(config.ManbagAppPath, {maxAge:oneYear}));  
+//    app.use(express.static(config.ManbagAppPath,{maxAge:oneYear}));  
+    //app.use('/male',express.static(config.ManbagAppPath),{maxAge:oneYear});
+  }
+}
+
 app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+  serveStaticFiles('development',app);
 });
 
 app.configure('production', function(){
   app.use(express.errorHandler());
+  serveStaticFiles('production',app);
 });
 
-// Routes
+// Mount api!
 
-app.get('/', routes.index);
-app.get('/partials/:name', routes.partials);
+//app.use('/api',api);
 
-// JSON API
-
-app.get('/api/name', api.name);
-
-// redirect all others to the index (HTML5 history)
-app.get('*', routes.index);
 
 // Start server
 
-app.listen(3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+
+app.listen(port, function(){
+  console.log("Express Brandid Assbreaking server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
+
+
+process.on('uncaughtException', function (exception) {
+   console.log('Uncaught exception');
+   console.log(exception);
 });

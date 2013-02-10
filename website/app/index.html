@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <title>Manb.ag - Shop Your Tits Off</title>
+
+    <meta name="description" content="Shop. Like a Man. Get someone else to do it.">
+
+    <meta name="robots" content="INDEX, FOLLOW">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+
+    <meta property="fb:app_id" content="288271097870534">
+    <meta property="og:site_name" content="BRANDiD - Shop. Like a Man.">
+    <meta property="og:image" content="http://www.getbrandid.com/brandid-square-big.png">
+    <meta property="og:title" content="BRANDiD - Shop. Like a Man.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.getbrandid.com/">
+    <meta property="fb:admins" content="202908185, 100004324987930, 100001036801533">
+    <meta property="og:description" content="We shop for you. It's the easiest way for men to get their clothes. Man up… sign up!">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css" />
+
+    <!-- remember to remove this when doing final build -->
+    <!-- <script type="text/javascript" data-project="male-app" src="http://localhost:48626/javascripts/edge.js"></script> -->
+    <!-- remember to remove this when doing final build -->
+
+
+    <!-- Fav and touch icons -->
+    <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+ -->
+
+    <!-- SDKs, Librairies & Frameworks --> 
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="scripts/libs/jquery-1.9.0.min.js">\x3C/script>')</script>
+    
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+  </head>
+  <body class="">
+    <!-- Google Tag Manager -->
+
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-QQ7N"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-QQ7N');</script>
+    <!-- End Google Tag Manager -->
+
+
+    <!--[if lt IE 7]>
+    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+    <script src="scripts/vendor/es5-shim.min.js"></script>
+    <script src="scripts/vendor/json3.min.js"></script>
+    <![endif]-->
+
+
+
+    <div class="wrapper">
+
+      <div ng-include src="'views/layout/header.html'"></div>
+      
+      <!-- <div ng-include src="page"></div> -->
+      <div ng-view></div>
+
+      <div ng-include src="'views/layout/footer.html'"></div>
+
+    </div> <!-- wrapper -->
+
+    <!-- Async Social SDKs -->
+    <div id="fb-root"></div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+    <script>window.angular || document.write('<script src="scripts/libs/angular-1.0.2.min.js">\x3C/script>')</script>    
+
+    <script type="text/javascript">
+      (function(doc, script) {
+        var js, 
+            fjs = doc.getElementsByTagName(script)[0],
+            add = function(url, id) {
+                if (doc.getElementById(id)) {return;}
+                js = doc.createElement(script);
+                js.src = url;
+                id && (js.id = id);
+                fjs.parentNode.insertBefore(js, fjs);
+            };
+        // Facebook SDK
+        add('//connect.facebook.net/en_US/all.js', 'facebook-jssdk');
+        // Twitter SDK
+        add('//platform.twitter.com/widgets.js', 'twitter-wjs');
+      }(document, 'script'));
+    </script>
+
+    <!-- Intercom -->
+    <script id="IntercomSettingsScriptTag">
+      // var intercomSettings = parseIntercomSettings;
+    </script>
+
+    <!-- build:js scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <!-- endbuild -->
+
+    <script type="text/javascript">
+      // manual bootstrap
+      angular.element(document).ready(function() {
+        angular.bootstrap(document, ['manbagApp']);
+      });
+    </script>
+
+    <!-- wufoo -->
+    <script type="text/javascript">
+      // var z7w3m7;(function(d, t) {
+      // var s = d.createElement(t), options = {
+      // 'userName':'brandid', 
+      // 'formHash':'z7x3p9', 
+      // 'autoResize':true,
+      // 'height':'502',
+      // 'async':true,
+      // 'header':'show', 
+      // 'ssl':true};
+      // s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'wufoo.com/scripts/embed/form.js';
+      // s.onload = s.onreadystatechange = function() {
+      // var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+      // try { z7w3m7 = new WufooForm();z7w3m7.initialize(options);z7w3m7.display(); } catch (e) {}};
+      // var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+      // })(document, 'script');
+    </script>
+
+    <!-- intercom -->
+    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://api.intercom.io/api/js/library.js';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}};})()
+    </script>
+
+    <script type="text/javascript">
+      window.addEventListener('load', function() {
+          new FastClick(document.body);
+      }, false);
+    </script>
+
+  </body>
+</html>

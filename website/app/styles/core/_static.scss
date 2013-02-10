@@ -1,0 +1,58 @@
+.static {
+
+  padding-bottom:20px;
+
+  ul:not(.list) {
+  list-style-type:none;
+  margin:0px;
+  }
+  ul.list {
+    list-style-type:square;
+  }
+
+  [class^="icon-"],
+  [class*=" icon-"] {
+    color:#d2002b !important;
+  }
+  .back-to-top {
+    font-size:11px;
+  }
+
+  .caption {
+    p {
+      font-size:18px;
+      font-weight:bold;
+      padding:10px;
+      background:#cfcfcf;
+    }
+
+
+    ul {
+      font-weight:normal;
+      font-size:14px;
+      display:block;
+      list-style-type: square;
+      margin-top:5px;
+      padding-left:25px;
+      padding-right:15px;
+
+      li + li {
+        margin-top:5px;
+      }
+
+    }
+
+  }
+
+  li.caption + li.caption {
+    margin-top:17px;
+  }
+
+  .main_content {
+    margin-top:20px;
+  }
+  .padded-content {
+    padding:10px;
+  }
+
+}

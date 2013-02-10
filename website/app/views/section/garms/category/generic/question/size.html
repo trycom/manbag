@@ -1,0 +1,39 @@
+ <div class="slide-container clearfix fadeIn ani">
+            <form ng-controller="SizeFormController">
+
+              <div class="curved-white-block withShadow withRadius">
+              <h1 class="question-title">{{questionTitle}}</h1>
+                <span id="size" class="question" typewriter>{{question}}</span>
+                
+              </div>
+
+                <div class="hint">{{howToMeasure}}</div>
+                <div class="answers multi-button-set">
+                    
+                    <a class="convert secondary size-auto-populator total-num-buttons-{{totalNumButtons}} first-{{$first}} last-{{$last}}" ng-click="chooseSize(routeParams.category, sizeButton.style, $index)" ng-repeat="sizeButton in sizeButtons" ng-class="{active: sizeButton.isActive}">
+                      <div class="v-outer-container">
+
+                        <div class="v-inner-container">
+
+                          <div class="v-aligned-element">
+                            <span class="bigger-text">{{sizeButton.label}}</span><br/><span class="smaller-text">{{sizeButton.measurements}}</span>
+                          </div>
+                        
+                        </div>
+
+                      </div>
+
+                    </a>
+
+                </div>
+                
+
+                <div class="next-question-button-section">
+                  <button class="convert submit" type="submit" ng-click="saveAnswer()">
+                        Next
+                  </button>
+                </div>
+
+            </form>
+
+          </div>

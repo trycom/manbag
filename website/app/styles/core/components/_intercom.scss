@@ -1,0 +1,53 @@
+// ***** INTERCOM  ****** //
+
+.intercom-messages em.unread_counter {
+	font-style: normal;
+	background-color: #d2002b;
+}
+
+
+
+.dropdown-menu .intercom-messages:hover {
+	em.unread_counter {
+		background-color: #FFF;
+		color: #d2002b;
+	}
+}
+
+li.intercom-phone-holder {
+	padding: 0;
+	margin: 0;
+	width: 0;
+}
+#Intercom-phone {
+	// hide text and move to top right
+	margin: 4px -10px 0 0;
+	z-index: 20;
+	position: relative;
+	padding: 0;
+	text-indent: -9999em;
+	em.unread_counter {
+		display: inline-block;
+		text-indent: 0;
+		position: absolute;
+		top: 0;
+		right: -5px;
+	}
+
+}
+
+
+/** override Intercom's stupid defaults **/
+.dropdown-menu .intercom-messages {
+	visibility: hidden !important;
+}
+
+.open .dropdown-menu .intercom-messages {
+	visibility: visible !important;
+}
+/** end override Intercom's stupid defaults **/
+
+
+/*** edited bootstrap _labels-badges.scss to include .intercom-messages em.unread_counter ***/
+
+// ***** END INTERCOM  ****** //

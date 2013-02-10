@@ -33,7 +33,6 @@
         [self hideTop];
     } else {
         [self showTop];
-        [self showLogin];
     }
     dynamicHeight = [UIScreen mainScreen].bounds.size.height - 20;
     _homeViewController = [[HomeViewController alloc] init];
@@ -43,29 +42,45 @@
     [_mainView addSubview:navController.view];
     [navController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
     [_mainView setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
+    [_topView setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
     [navController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
     UIImage* barBackground = [UIImage imageNamed:@"navBar.png"];
     [navController.navigationBar setBackgroundImage:barBackground forBarMetrics:UIBarMetricsDefault];
     [_homeViewController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
     [navController didMoveToParentViewController:self];
+    _loginViewController = [[LoginViewController alloc] init];
+    [self addChildViewController:_loginViewController];
+    [_loginViewController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
+    [_topView addSubview:_loginViewController.view];
+    [_topView setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
+    [_loginViewController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
+    [_loginViewController didMoveToParentViewController:self];
+    _complimentView.alpha = 0.0;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
 }
 
 - (void)showLogin{
-    LoginViewController *loginViewController = [[LoginViewController alloc] init];
-    [self addChildViewController:loginViewController];
-    [_topView addSubview:loginViewController.view];
-    [loginViewController didMoveToParentViewController:self];
 }
 
 - (void)showTop{
-    _topView.alpha = 1.0;
+    [UIView animateWithDuration:0.8 animations:^{
+        _topView.alpha = 1.0;
+        _mainView.alpha = 0.6;
+    } completion:^(BOOL finished) {
+        topVisible =  YES;
+    }];
+
 }
 
 - (void)hideTop{
-    _topView.alpha = 0.0;
+    [UIView animateWithDuration:0.8 animations:^{
+        _mainView.alpha = 1.0;
+        _topView.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        topVisible =  NO;
+    }];
     [_homeViewController viewDidAppear:YES];
 }
 
@@ -83,6 +98,8 @@
 - (void)viewDidUnload {
     [self setMainView:nil];
     [self setTopView:nil];
+    [self setCompliment:nil];
+    [self setComplimentView:nil];
     [super viewDidUnload];
 }
 @end

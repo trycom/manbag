@@ -164,6 +164,7 @@
     return [_bags count]+1;
 }
 
+
 - (void)mapView:(MKMapView *)mv didAddAnnotationViews:(NSArray *)views {
     for(MKAnnotationView *annotationView in views) {
         if (hasZoomed == NO) {
@@ -175,7 +176,7 @@
                 span.latitudeDelta=0.1;
                 span.longitudeDelta=0.1;
                 CLLocationCoordinate2D location=mv.userLocation.coordinate;
-                region = MKCoordinateRegionMakeWithDistance(location, 500, 500);
+                region = MKCoordinateRegionMakeWithDistance(location, 700, 700);
                 [mv setRegion:region animated:TRUE];
                 [mv regionThatFits:region];
                 hasZoomed = YES;
@@ -210,7 +211,11 @@
             NSLog(@"Works");
             _bags = [objects mutableCopy];
             int i;
-            [_map removeAnnotations:_map.annotations];
+            id userLocation = [_map userLocation];
+            [_map removeAnnotations:[_map annotations]];
+            if ( userLocation != nil ) {
+                [_map addAnnotation:userLocation];
+            }
             for (i=0; i<[_bags count]; i++) {
                 NSMutableDictionary* currentBag = [_bags objectAtIndex:i];
                 bagPoints* annotation = [[bagPoints alloc] init];
@@ -251,6 +256,24 @@
     UINavigationController* doneNavController = [[UINavigationController alloc] initWithRootViewController:deliveryAddressViewController];
     deliveryAddressViewController.bags = _bags;
     [self presentModalViewController:doneNavController animated:YES];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)map viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    static NSString *AnnotationViewID = @"annotationViewID";
+    MKAnnotationView *annotationView = (MKAnnotationView *)[_map dequeueReusableAnnotationViewWithIdentifier:AnnotationViewID];
+    if (annotationView == nil)
+    {
+        annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationViewID];
+    }
+    if(annotationView.annotation != _map.userLocation) {
+    annotationView.image = [UIImage imageNamed:@"pin.png"];
+    annotationView.annotation = annotation;
+    return annotationView;
+    }
+    else {
+        return nil;
+    }
 }
 
 - (void)didReceiveMemoryWarning

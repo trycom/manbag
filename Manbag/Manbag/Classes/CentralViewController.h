@@ -8,14 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "HomeViewController.h"
+#import "LoginViewController.h"
 
 @interface CentralViewController : UIViewController {
     int dynamicHeight;
+    BOOL topVisible;
 }
 
 @property (strong, nonatomic) IBOutlet UIView *mainView;
 @property (strong, nonatomic) IBOutlet UIView *topView;
 @property (strong, nonatomic) HomeViewController* homeViewController;
+@property (strong, nonatomic) LoginViewController* loginViewController;
+@property (strong, nonatomic) IBOutlet UILabel *compliment;
+@property (strong, nonatomic) IBOutlet UIView *complimentView;
 
 - (void)showTop;
 - (void)hideTop;

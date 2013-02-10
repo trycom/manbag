@@ -210,9 +210,11 @@
             [query whereKey:@"owner" equalTo:[PFUser currentUser]];
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 if (!error) {
-                    NSMutableArray* delivery = [objects mutableCopy];
-                    if ([delivery count] > 0) {
+                    if ([objects count] > 0) {
                         DeliveryModeViewController* deliveryModeViewController = [[DeliveryModeViewController alloc] init];
+                        PFObject* currentDelivery = (PFObject *)[objects objectAtIndex:0];
+                        [currentDelivery fetch];
+                        deliveryModeViewController.delivery = currentDelivery;
                         UINavigationController* newNavController = [[UINavigationController alloc] initWithRootViewController:deliveryModeViewController];
                         UIImage* barBackground = [UIImage imageNamed:@"navBar.png"];
                         [newNavController.navigationBar setBackgroundImage:barBackground forBarMetrics:UIBarMetricsDefault];

@@ -36,9 +36,6 @@
     [super viewDidLoad];
     hasZoomed = NO;
     [_tv addParallelViewWithUIView:_map withDisplayRadio:0.5 cutOffAtMax:YES];
-    UIBarButtonItem* addNew = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(goNew)];
-    [addNew setTintColor:[UIColor blackColor]];
-    self.navigationItem.rightBarButtonItem = addNew;
     UIBarButtonItem* logout = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:self action:@selector(goLogout)];
     [logout setTintColor:[UIColor blackColor]];
     self.navigationItem.leftBarButtonItem = logout;
@@ -46,7 +43,19 @@
     UIImageView* titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navIcon.png"]];
     [self.navigationItem setTitleView:titleView];
     [self validate];
-    
+    _retainedTimer = [NSTimer scheduledTimerWithTimeInterval:20.0
+                                                                                 target:self
+                                                                               selector:@selector(pingLocation)
+                                                                               userInfo:nil
+                                                                                repeats:YES];
+    [self pingLocation];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        [_delivery setObject:[PFUser currentUser] forKey:@"deliveryMan"];
+        [_delivery saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        }];
+        dispatch_async(dispatch_get_main_queue(), ^{
+        });
+    });
 
 }
 
@@ -142,15 +151,6 @@
     return 1;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    int adjustedRow = indexPath.row - 1;
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self deleteBag:[_bags objectAtIndex:adjustedRow]];
-        [_bags removeObjectAtIndex:adjustedRow];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }
-}
-
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
     int row = indexPath.row;
     switch (row) {
@@ -202,68 +202,31 @@
     [appDelegate.centralViewController showTop];
 }
 
-- (void)checkDelivery{
-    PFUser *currentUser = [PFUser currentUser];
-    if (currentUser) {
-        {
-            PFQuery *query = [PFQuery queryWithClassName:@"Delivery"];
-            [query whereKey:@"owner" equalTo:[PFUser currentUser]];
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                if (!error) {
-                    NSMutableArray* delivery = [objects mutableCopy];
-                    if ([delivery count] > 0) {
-                        DeliveryModeViewController* deliveryModeViewController = [[DeliveryModeViewController alloc] init];
-                        UINavigationController* newNavController = [[UINavigationController alloc] initWithRootViewController:deliveryModeViewController];
-                        UIImage* barBackground = [UIImage imageNamed:@"navBar.png"];
-                        [newNavController.navigationBar setBackgroundImage:barBackground forBarMetrics:UIBarMetricsDefault];
-                        [self presentModalViewController:newNavController animated:YES];
-
-                    }
-                } else {
-                }
-            }];
-        }
-    }
-}
-
-
 - (void)updateBags{
-    [self checkDelivery];
-    PFUser *currentUser = [PFUser currentUser];
-    if (currentUser) {
-    {
-    PFQuery *query = [PFQuery queryWithClassName:@"Bag"];
-    [query whereKey:@"owner" equalTo:[PFUser currentUser]];
-    [query whereKey:@"delivered" equalTo:[NSNumber numberWithBool:NO]];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            NSLog(@"Works");
-            _bags = [objects mutableCopy];
-            int i;
-            id userLocation = [_map userLocation];
-            [_map removeAnnotations:[_map annotations]];
-            if ( userLocation != nil ) {
-                [_map addAnnotation:userLocation];
-            }
-            for (i=0; i<[_bags count]; i++) {
-                NSMutableDictionary* currentBag = [_bags objectAtIndex:i];
-                bagPoints* annotation = [[bagPoints alloc] init];
-                PFGeoPoint* bagGeoPoint = [currentBag objectForKey:@"shopLocation"];
-                annotation.longitude = bagGeoPoint.longitude;
-                annotation.latitude = bagGeoPoint.latitude;
-                [_map addAnnotation:annotation];
-            }
-            [self zoomToFitMapAnnotations:_map];
-            [_tv reloadData];
-        } else {
-            NSLog(@"Doesn't work");
-            AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-            [appDelegate.centralViewController showError:@"Couldn't update shopping"];
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
+    [_bags removeAllObjects];
+    NSArray* rawBags = [_delivery objectForKey:@"bags"];
+    int i;
+    for (i=0; i< [rawBags count]; i++) {
+        NSMutableDictionary* currentBag = [rawBags objectAtIndex:i];
+        PFObject *bag = (PFObject *)currentBag;
+        [bag fetch];
+        [_bags addObject:bag];
     }
+    id userLocation = [_map userLocation];
+    [_map removeAnnotations:[_map annotations]];
+    if ( userLocation != nil ) {
+        [_map addAnnotation:userLocation];
     }
+    for (i=0; i<[_bags count]; i++) {
+        NSMutableDictionary* currentBag = [_bags objectAtIndex:i];
+        bagPoints* annotation = [[bagPoints alloc] init];
+        PFGeoPoint* bagGeoPoint = [currentBag objectForKey:@"shopLocation"];
+        annotation.longitude = bagGeoPoint.longitude;
+        annotation.latitude = bagGeoPoint.latitude;
+        [_map addAnnotation:annotation];
+    }
+    [self zoomToFitMapAnnotations:_map];
+    [_tv reloadData];
 }
 
 - (void)deleteBag:(NSMutableDictionary *)bag{
@@ -281,13 +244,16 @@
 - (void)validate{
 }
 
+- (void)pingLocation{
+    PFGeoPoint *location = [PFGeoPoint geoPointWithLatitude:_map.userLocation.location.coordinate.latitude
+                            longitude:_map.userLocation.location.coordinate.longitude];
+
+    [_delivery setObject:location forKey:@"deliveryLocation"];
+    [_delivery saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    }];
+}
+
 - (IBAction)goDone:(id)sender {
-    FinishViewController* finishViewController = [[FinishViewController alloc] init];
-    UINavigationController* doneNavController = [[UINavigationController alloc] initWithRootViewController:finishViewController];
-    finishViewController.bags = _bags;
-    UIImage* barBackground = [UIImage imageNamed:@"navBar.png"];
-    [doneNavController.navigationBar setBackgroundImage:barBackground forBarMetrics:UIBarMetricsDefault];
-    [self presentModalViewController:doneNavController animated:YES];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)map viewForAnnotation:(id <MKAnnotation>)annotation

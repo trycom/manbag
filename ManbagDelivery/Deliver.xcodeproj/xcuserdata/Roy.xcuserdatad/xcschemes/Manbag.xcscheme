@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B07347DB16C5BD1500A7B961"
-               BuildableName = "Manbag.app"
-               BlueprintName = "Manbag"
-               ReferencedContainer = "container:Manbag.xcodeproj">
+               BuildableName = "Deliver.app"
+               BlueprintName = "Deliver"
+               ReferencedContainer = "container:Deliver.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B07347DB16C5BD1500A7B961"
-            BuildableName = "Manbag.app"
-            BlueprintName = "Manbag"
-            ReferencedContainer = "container:Manbag.xcodeproj">
+            BuildableName = "Deliver.app"
+            BlueprintName = "Deliver"
+            ReferencedContainer = "container:Deliver.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B07347DB16C5BD1500A7B961"
-            BuildableName = "Manbag.app"
-            BlueprintName = "Manbag"
-            ReferencedContainer = "container:Manbag.xcodeproj">
+            BuildableName = "Deliver.app"
+            BlueprintName = "Deliver"
+            ReferencedContainer = "container:Deliver.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B07347DB16C5BD1500A7B961"
-            BuildableName = "Manbag.app"
-            BlueprintName = "Manbag"
-            ReferencedContainer = "container:Manbag.xcodeproj">
+            BuildableName = "Deliver.app"
+            BlueprintName = "Deliver"
+            ReferencedContainer = "container:Deliver.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

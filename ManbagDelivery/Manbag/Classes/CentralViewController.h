@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HomeViewController.h"
+#import "ListViewController.h"
 #import "LoginViewController.h"
 
 @interface CentralViewController : UIViewController {
@@ -17,7 +17,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *mainView;
 @property (strong, nonatomic) IBOutlet UIView *topView;
-@property (strong, nonatomic) HomeViewController* homeViewController;
+@property (strong, nonatomic) ListViewController* listViewController;
 @property (strong, nonatomic) UINavigationController* navController;
 @property (strong, nonatomic) LoginViewController* loginViewController;
 @property (strong, nonatomic) IBOutlet UILabel *compliment;

@@ -8,7 +8,6 @@
 
 #import "CentralViewController.h"
 #import "LoginViewController.h"
-#import "HomeViewController.h"
 
 @interface CentralViewController ()
 
@@ -35,8 +34,8 @@
         [self showTop];
     }
     dynamicHeight = [UIScreen mainScreen].bounds.size.height - 20;
-    _homeViewController = [[HomeViewController alloc] init];
-    _navController = [[UINavigationController alloc] initWithRootViewController:_homeViewController];
+    _listViewController = [[ListViewController alloc] init];
+    _navController = [[UINavigationController alloc] initWithRootViewController:_listViewController];
     [self addChildViewController:_navController];
     [_navController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
     [_mainView addSubview:_navController.view];
@@ -46,7 +45,7 @@
     [_navController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
     UIImage* barBackground = [UIImage imageNamed:@"navBar.png"];
     [_navController.navigationBar setBackgroundImage:barBackground forBarMetrics:UIBarMetricsDefault];
-    [_homeViewController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
+    [_listViewController.view setFrame:CGRectMake(0, 0, 320, dynamicHeight)];
     [_navController didMoveToParentViewController:self];
     _loginViewController = [[LoginViewController alloc] init];
     [self addChildViewController:_loginViewController];
@@ -81,7 +80,7 @@
     } completion:^(BOOL finished) {
         topVisible =  NO;
     }];
-    [_homeViewController viewDidAppear:YES];
+    [_listViewController viewDidAppear:YES];
 }
 
 

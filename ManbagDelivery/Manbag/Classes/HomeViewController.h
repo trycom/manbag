@@ -16,7 +16,9 @@
 @property (strong, nonatomic) IBOutlet UITableView *tv;
 @property (strong, nonatomic) IBOutlet MKMapView *map;
 @property (strong, nonatomic) NSMutableArray* bags;
+@property (strong, nonatomic) PFObject* delivery;
 @property (strong, nonatomic) IBOutlet UIButton *doneBtn;
+@property (strong, nonatomic) NSTimer *retainedTimer;
 
 - (IBAction)goDone:(id)sender;
 

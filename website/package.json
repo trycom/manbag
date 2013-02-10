@@ -1,0 +1,16 @@
+{
+    "name": "manbag",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "3.0.0",
+        "jade": ">= 0.0.1"
+    },
+    "subdomain": "manbag",
+    "scripts": {
+        "start": "app.js"
+    },
+    "engines": {
+        "node": "0.8.x"
+    }
+}
